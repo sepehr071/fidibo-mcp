@@ -1,0 +1,199 @@
+{
+ "data": {
+  "per_page": 25,
+  "result": [
+   {
+    "component": "BOOK_INTRODUCTION",
+    "title": "درباره شازده کوچولو",
+    "subtitle": "معرفی",
+    "items": [
+     {
+      "categories": [
+       {
+        "action": {
+         "type": "category",
+         "url": "flex/audiobooks/categories/story-foreign-short-story",
+         "web_url": "/audiobooks/story-foreign-short-story"
+        },
+        "id": 489,
+        "name": "داستان کوتاه خارجی"
+       }
+      ],
+      "introduction": {
+       "description": "<h3 class=\"ql-align-justify\"><strong>درباره‌ی کتاب صوتی شازده کوچولو اثر آنتوان دو سنت اگزوپری</strong></h3><p class=\"ql-align-justify\">کتاب شازده کوچولو برای نخستین بار در سال 1943 در آمریکا به دو زبان فرانسوی و انگلیسی منتشر شد. کتاب شازده کوچولو را یکی از محبوب<strong>‌</strong>ترین کتاب<strong>‌</strong>های تاریخ می<strong>‌</strong>دانند و تا امروز در سراسر دنیا طرفداران زیادی دارد. کتاب شازده کوچولو یک کتاب جادویی است، این کتاب طوری نوشته شده ایت که خواننده با هر بار خواندن آن درک متفاوتی از این داستان زیبا خواهد داشت. اگر شما جز آن دسته از خوانندگانی هستید که برای مطالعه<strong>‌</stron",
+       "short_description": "درباره‌ی کتاب صوتی شازده کوچولو اثر آنتوان دو سنت اگزوپریکتاب شازده کوچولو برای نخستین بار در سال 1943 در آمریکا به دو زبان فرانسوی و انگلیسی منتشر شد. کتاب شازده کوچولو را یکی از محبوب‌ترین کتاب‌های تاریخ می‌دانند و تا امروز در سراسر دنیا طرفداران زیادی دارد. کتاب شازده کوچولو ...",
+       "title": "درباره شازده کوچولو"
+      }
+     }
+    ],
+    "order": 1
+   },
+   {
+    "component": "BOOK_SPECIFICATION",
+    "title": "شناسنامه",
+    "items": [
+     {
+      "content_type": "audiobook",
+      "specifications": [
+       {
+        "image": "https://cdn.fidibo.com/phoenixpub/images/flex/general/bdda564b-d34e-4912-a7f9-55c0bd5aebaf.svg",
+        "sub_title": "mp۳",
+        "title": "فرمت محتوا"
+       },
+       {
+        "image": "https://cdn.fidibo.com/phoenixpub/images/flex/general/7d43ecfc-c022-4726-a1d4-bac698f8fcad.svg",
+        "sub_title": "۶۲.۱۶ مگابایت",
+        "title": "حجم"
+       },
+       {
+        "image": "https://cdn.fidibo.com/phoenixpub/images/flex/general/d43c656d-1ad1-4483-be8e-d0d410f4437a.svg",
+        "sub_title": "۰۱:۳۰:۳۲",
+        "title": "مدت زمان"
+       },
+       {
+        "action": {
+         "type": "person",
+         "url": "persons/30198",
+         "web_url": "/contributors/30198-آنتوان-دوسنت-اگزوپری"
+        },
+        "id": 30198,
+        "slug": "30198-آنتوان-دوسنت-اگزوپری",
+        "sub_title": " آنتوان دوسنت اگزوپری",
+        "title": "نویسنده"
+       },
+       {
+        "action": {
+         "type": "person",
+         "url": "persons/8",
+         "web_url": "/contributors/8-احمد-شاملو"
+        },
+        "id": 8,
+        "slug": "8-احمد-شاملو",
+        "sub_title": "احمد شاملو",
+        "title": "مترجم"
+       },
+       {
+        "action": {
+         "type": "person",
+         "url": "persons/285",
+         "web_url": "/contributors/285-ابوالحسن-تهامی"
+        },
+        "id": 285,
+        "slug": "285-ابوالحسن-تهامی",
+        "sub_title": "ابوالحسن تهامی",
+        "title": "گوینده"
+       },
+       {
+        "action": {
+         "type": "person",
+         "url": "persons/30263",
+         "web_url": "/contributors/30263-بهاره-رهنما"
+        },
+        "id": 30263,
+        "slug": "30263-بهاره-رهنما",
+        "sub_title": "بهاره رهنما",
+        "title": "گوینده دوم"
+       },
+       {
+        "action": {
+         "type": "person",
+         "url": "persons/40637",
+         "web_url": "/contributors/40637-ژرژ-پطروسی"
+        },
+        "id": 40637,
+        "slug": "40637-ژرژ-پطروسی",
+        "sub_title": "ژرژ پطروسی",
+        "title": "گوینده سوم"
+       },
+       {
+        "action": {
+         "inputs": [
+          {
+           "key": "publisherId",
+           "value": "83"
+          }
+         ],
+         "type": "publisher",
+         "url": "/publishers/83",
+         "web_url": "/publishers/83-انتشارات-نگاه"
+        },
+        "sub_title": "انتشارات نگاه",
+        "title": "ناشر"
+       },
+       {
+        "sub_title": "فارسی",
+        "title": "زبان"
+       },
+       {
+        "sub_title": "۱۳۹۷/۱۲/۱۲",
+        "title": "تاریخ انتشار"
+       },
+       {
+        "sub_title": "۳ دلار",
+        "title": "قیمت ارزی"
+       },
+       {
+        "sub_title": "فقط در فیدیبو",
+        "title": "مطالعه و دانلود فایل"
+       }
+      ],
+      "toc_action": {
+       "type": "toc",
+       "url": "flex/book/toc/88132"
+      }
+     }
+    ],
+    "order": 2
+   },
+   {
+    "component": "BOOK_RATE",
+    "items": [
+     {
+      "score": 4.5,
+      "responses": 968,
+      "reviews": 577,
+      "title": "براساس رأی 968 مخاطب",
+      "choices": [
+       {
+        "responses": 108,
+        "title": "حال‌خوب‌کن ✨"
+       },
+       {
+        "responses": 73,
+        "title": "اجرای روان 🎙️"
+       }
+      ],
+      "distribution": [
+       {
+        "percent": 6,
+        "score": 1
+       },
+       {
+        "percent": 2,
+        "score": 2
+       },
+       {
+        "percent": 5,
+        "score": 3
+       },
+       {
+        "percent": 10,
+        "score": 4
+       },
+       {
+        "percent": 75,
+        "score": 5
+       }
+      ]
+     }
+    ],
+    "order": 7
+   }
+  ],
+  "total": 100
+ },
+ "error": "",
+ "message": "با موفقیت انجام شد",
+ "represented_at": "2026-10-10 16:51:24.994810",
+ "version": "v1"
+}

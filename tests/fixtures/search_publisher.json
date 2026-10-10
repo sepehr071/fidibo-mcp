@@ -1,0 +1,45 @@
+{
+ "data": {
+  "per_page": 15,
+  "result": [
+   {
+    "component": "PUBLISHER_LIST",
+    "title": "ناشر",
+    "items": [
+     {
+      "id": 221,
+      "uuid": "1784bc97-fff3-4603-8352-c62e0c375449",
+      "title": "<b>مجید</b>",
+      "slug": "221-انتشارات-<b>مجید</b>",
+      "logo": "https://cdn.fidibo.com/phoenixpub/publisher/1784bc97-fff3-4603-8352-c62e0c375449/image.png",
+      "action": {
+       "type": "publisher",
+       "url": "/publishers/221",
+       "web_url": "/publishers/221-انتشارات-مجید"
+      }
+     }
+    ],
+    "action": {
+     "type": "search_list",
+     "inputs": [
+      {
+       "key": "query",
+       "value": "%D9%85%D8%AC%DB%8C%D8%AF"
+      }
+     ],
+     "url": "/search/list/publisher",
+     "web_url": "/search/list/publisher?query=%25D9%2585%25D8%25AC%25DB%258C%25D8%25AF"
+    },
+    "extra_data": {
+     "query_id": "CB4AC3A547BA22EE"
+    },
+    "order": 1
+   }
+  ],
+  "total": 1
+ },
+ "error": "",
+ "message": "با موفقیت انجام شد",
+ "represented_at": "2026-10-10 16:43:06.931182",
+ "version": "v1"
+}

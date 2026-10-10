@@ -1,0 +1,32 @@
+{
+ "data": {
+  "per_page": 15,
+  "result": [
+   {
+    "id": 221,
+    "uuid": "1784bc97-fff3-4603-8352-c62e0c375449",
+    "name": "مجید",
+    "slug": "221-انتشارات-مجید",
+    "image": "https://cdn.fidibo.com/phoenixpub/publisher/1784bc97-fff3-4603-8352-c62e0c375449/image.png",
+    "description": "<p class=\"ql-align-right ql-direction-rtl\">نشر مجید یکی از نام‌های باسابقه و معتبر در صنعت نشر ایران است که طی چهار دهه فعالیت مستمر، سهم قابل‌توجهی در ترویج ادبیات و اندیشه داشته است. این انتشارات مجید بیش از ۳۸۰ عنوان در حوزه‌های ادبیات، تاریخ، فلسفه و روان‌شناسی منتشر کرده. نشر مجید تا به حال با نویسندگان، مترجمان و پژوهشگران مهمی مثل <a href=\"https://fidibo.com/contributors/85177-%D8%AC%D9%84%D8%A7%D9%84-%D8%A2%D9%84-%D8%A7%D8%AD%D9%85%D8%AF\" rel=\"noopener noreferrer\" target=\"_blank\">جلال آل احمد</a>، <a href=\"https://fidibo.com/contributors/3979-%D9%BE%D8%A7%D8%A6%D9%88%D9%84%D9%88-%DA%A9",
+    "share_url": "https://fidibo.com/publishers/221-انتشارات-مجید",
+    "action": {
+     "type": "publisher_page",
+     "inputs": [
+      {
+       "key": "publisherId",
+       "value": 221
+      }
+     ],
+     "url": "/flex/page/PUBLISHER_PAGE",
+     "event": "immediate"
+    }
+   }
+  ],
+  "total": 1
+ },
+ "error": "",
+ "message": "با موفقیت انجام شد",
+ "represented_at": "2026-10-10 16:43:03.343132",
+ "version": "v1"
+}

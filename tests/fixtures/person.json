@@ -1,0 +1,34 @@
+{
+ "data": {
+  "per_page": 15,
+  "result": [
+   {
+    "id": 30198,
+    "uuid": "eac287f0-43b7-427d-961a-2778f7c64194",
+    "name": "",
+    "last_name": "آنتوان دوسنت اگزوپری",
+    "full_name": "آنتوان دوسنت اگزوپری",
+    "slug": "30198-آنتوان-دوسنت-اگزوپری",
+    "roles": [
+     "نویسنده"
+    ],
+    "share_url": "https://fidibo.com/contributors/30198-آنتوان-دوسنت-اگزوپری",
+    "action": {
+     "type": "person",
+     "inputs": [
+      {
+       "key": "authorId",
+       "value": "30198"
+      }
+     ],
+     "url": "/flex/page/PERSON_PAGE"
+    }
+   }
+  ],
+  "total": 1
+ },
+ "error": "",
+ "message": "با موفقیت انجام شد",
+ "represented_at": "2026-10-10 16:43:02.232753",
+ "version": "v1"
+}

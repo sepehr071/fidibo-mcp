@@ -1,0 +1,380 @@
+{
+ "data": {
+  "per_page": 15,
+  "result": [
+   {
+    "component": "CONTENT_LIST",
+    "title": "کتاب متنی",
+    "items": [
+     {
+      "id": 186478,
+      "uuid": "aff5cd1d-b99b-45fd-8605-d06b5ee6e610",
+      "status": "published",
+      "title": "سیاره‌های تازه",
+      "subtitle": "جمعی از نویسندگان",
+      "footerText": "نوین کتاب",
+      "footerTextAction": {
+       "type": "publisher",
+       "url": "/publishers/430",
+       "web_url": "/publishers/430-انتشارات-نوین-کتاب-گویا"
+      },
+      "format": "mp3",
+      "content_type": "audiobook",
+      "action": {
+       "type": "book",
+       "inputs": [
+        {
+         "key": "slug",
+         "value": "186478-سیاره-های-تازه"
+        }
+       ],
+       "url": "/flex/book/item/186478",
+       "web_url": "/book/186478-سیاره-های-تازه"
+      },
+      "rate": {
+       "score": 4.8,
+       "responses": 4
+      },
+      "cover": {
+       "image": "https://cdn.fidibo.com/phoenixpub/content/aff5cd1d-b99b-45fd-8605-d06b5ee6e610/e21d2d23-353b-42b6-a17a-b77db82493de.jpg",
+       "background": {
+        "r": 97,
+        "g": 100,
+        "b": 107,
+        "a": 0.15
+       }
+      },
+      "badges": {
+       "purchased": 0,
+       "is_gift": 0,
+       "sample": 0,
+       "user_subscription": 0,
+       "in_user_plan": 0,
+       "inform_me": 0,
+       "subscription": 1,
+       "campaign": 0,
+       "favorite": 0,
+       "read": 0,
+       "on_the_table": 0,
+       "tts": 0
+      },
+      "narrator": "متین بختی"
+     },
+     {
+      "id": 123825,
+      "uuid": "221f52b5-6e14-4292-ad2f-307327459fe7",
+      "status": "published",
+      "title": "<b>شازده کوچولو</b>",
+      "subtitle": "آنتوان دوسنت اگزوپری",
+      "footerText": "پیام محراب",
+      "footerTextAction": {
+       "type": "publisher",
+       "url": "/publishers/1513",
+       "web_url": "/publishers/1513-پیام-محراب"
+      },
+      "format": "pdf",
+      "content_type": "ebook",
+      "action": {
+       "type": "book",
+       "inputs": [
+        {
+         "key": "slug",
+         "value": "123825-شازده-کوچولو"
+        }
+       ],
+       "url": "/flex/book/item/123825",
+       "web_url": "/book/123825-شازده-کوچولو"
+      },
+      "rate": {
+       "score": 3,
+       "responses": 5
+      },
+      "cover": {
+       "image": "https://cdn.fidibo.com/phoenixpub/content/221f52b5-6e14-4292-ad2f-307327459fe7/456e95af-d6d4-44ac-9703-065ed4bb1162.jpg",
+       "background": {
+        "r": 97,
+        "g": 100,
+        "b": 107,
+        "a": 0.1
+       }
+      },
+      "badges": {
+       "purchased": 0,
+       "is_gift": 0,
+       "sample": 0,
+       "user_subscription": 0,
+       "in_user_plan": 0,
+       "inform_me": 0,
+       "subscription": 1,
+       "campaign": 0,
+       "favorite": 0,
+       "read": 0,
+       "on_the_table": 0,
+       "tts": 0
+      },
+      "price": 5000,
+      "usd_price": 2.5
+     },
+     {
+      "id": 91415,
+      "uuid": "a405f538-7ee2-438e-ac9a-11521888d98c",
+      "status": "published",
+      "title": "در جستجوی <b>شازده کوچولو</b>",
+      "subtitle": "بیمبا لندمن",
+      "footerText": "آوارسا",
+      "footerTextAction": {
+       "type": "publisher",
+       "url": "/publishers/565",
+       "web_url": "/publishers/565-انتشارات-آوارسا"
+      },
+      "format": "mp3",
+      "content_type": "audiobook",
+      "action": {
+       "type": "book",
+       "inputs": [
+        {
+         "key": "slug",
+         "value": "91415-کتاب-صوتی-جستجوی-شازده-کوچولو"
+        }
+       ],
+       "url": "/flex/book/item/91415",
+       "web_url": "/book/91415-کتاب-صوتی-جستجوی-شازده-کوچولو"
+      },
+      "rate": {
+       "score": 4.5,
+       "responses": 2
+      },
+      "cover": {
+       "image": "https://cdn.fidibo.com/phoenixpub/content/a405f538-7ee2-438e-ac9a-11521888d98c/5eb94611-146b-49d1-b98e-e5f748355963.jpg",
+       "background": {
+        "r": 97,
+        "g": 100,
+        "b": 107,
+        "a": 0.1
+       }
+      },
+      "badges": {
+       "purchased": 0,
+       "is_gift": 0,
+       "sample": 0,
+       "user_subscription": 0,
+       "in_user_plan": 0,
+       "inform_me": 0,
+       "subscription": 1,
+       "campaign": 1,
+       "favorite": 0,
+       "read": 0,
+       "on_the_table": 0,
+       "tts": 0
+      },
+      "campaign": {
+       "discount_amount": 50,
+       "discounted_price": 5000,
+       "discounted_usd_price": 1.25
+      },
+      "price": 10000,
+      "usd_price": 2.5,
+      "narrator": "امیرحسین صداقتی"
+     },
+     {
+      "id": 175267,
+      "uuid": "77f947e9-0b6e-48ce-bd49-e85fbc3c5e3e",
+      "status": "published",
+      "title": "<b>شازده کوچولو</b> در دور دنیا",
+      "subtitle": "کورین دلپورت",
+      "footerText": "آوارسا",
+      "footerTextAction": {
+       "type": "publisher",
+       "url": "/publishers/565",
+       "web_url": "/publishers/565-انتشارات-آوارسا"
+      },
+      "format": "mp3",
+      "content_type": "audiobook",
+      "action": {
+       "type": "book",
+       "inputs": [
+        {
+         "key": "slug",
+         "value": "175267-شازده-کوچولو-در-دور-دنیا"
+        }
+       ],
+       "url": "/flex/book/item/175267",
+       "web_url": "/book/175267-شازده-کوچولو-در-دور-دنیا"
+      },
+      "rate": {
+       "score": 0,
+       "responses": 0
+      },
+      "cover": {
+       "image": "https://cdn.fidibo.com/phoenixpub/content/77f947e9-0b6e-48ce-bd49-e85fbc3c5e3e/6a1c03be-1667-40b3-be66-27c1fe9f4e1f.jpg",
+       "background": {
+        "r": 97,
+        "g": 100,
+        "b": 107,
+        "a": 0.15
+       }
+      },
+      "badges": {
+       "purchased": 0,
+       "is_gift": 0,
+       "sample": 0,
+       "user_subscription": 0,
+       "in_user_plan": 0,
+       "inform_me": 0,
+       "subscription": 0,
+       "campaign": 1,
+       "favorite": 0,
+       "read": 0,
+       "on_the_table": 0,
+       "tts": 0
+      },
+      "campaign": {
+       "discount_amount": 50,
+       "discounted_price": 5000,
+       "discounted_usd_price": 0.5
+      },
+      "price": 10000,
+      "usd_price": 1,
+      "narrator": "نرگس داغمه چی"
+     },
+     {
+      "id": 128352,
+      "uuid": "a8287131-ae05-4b83-aac4-a053a29cfb5b",
+      "status": "published",
+      "title": "<b>شازده کوچولو</b>",
+      "subtitle": "آنتوان دوسنت اگزوپری",
+      "footerText": "انتشارات اودیسه",
+      "footerTextAction": {
+       "type": "publisher",
+       "url": "/publishers/1000",
+       "web_url": "/publishers/1000-انتشارات-اودیسه"
+      },
+      "format": "epub",
+      "content_type": "ebook",
+      "action": {
+       "type": "book",
+       "inputs": [
+        {
+         "key": "slug",
+         "value": "128352-شازده-کوچولو"
+        }
+       ],
+       "url": "/flex/book/item/128352",
+       "web_url": "/book/128352-شازده-کوچولو"
+      },
+      "rate": {
+       "score": 0,
+       "responses": 0
+      },
+      "cover": {
+       "image": "https://cdn.fidibo.com/phoenixpub/content/a8287131-ae05-4b83-aac4-a053a29cfb5b/2a1d09a8-d8f2-4a83-a1b0-569e724ac6d0.jpg",
+       "background": {
+        "r": 97,
+        "g": 100,
+        "b": 107,
+        "a": 0.1
+       }
+      },
+      "badges": {
+       "purchased": 0,
+       "is_gift": 0,
+       "sample": 0,
+       "user_subscription": 0,
+       "in_user_plan": 0,
+       "inform_me": 0,
+       "subscription": 0,
+       "campaign": 1,
+       "favorite": 0,
+       "read": 0,
+       "on_the_table": 0,
+       "tts": 0
+      },
+      "campaign": {
+       "discount_amount": 10,
+       "discounted_price": 6300,
+       "discounted_usd_price": 2.25
+      },
+      "price": 7000,
+      "usd_price": 2.5
+     },
+     {
+      "id": 151101,
+      "uuid": "edc14619-2f04-47b7-8acb-fc810f00e309",
+      "status": "published",
+      "title": "<b>شازده کوچولو</b>",
+      "subtitle": "آنتوان دوسنت اگزوپری",
+      "footerText": "آسمان علم",
+      "footerTextAction": {
+       "type": "publisher",
+       "url": "/publishers/1808",
+       "web_url": "/publishers/1808-آسمان-علم"
+      },
+      "format": "mp3",
+      "content_type": "audiobook",
+      "action": {
+       "type": "book",
+       "inputs": [
+        {
+         "key": "slug",
+         "value": "151101-کتاب-صوتی-شازده-کوچولو"
+        }
+       ],
+       "url": "/flex/book/item/151101",
+       "web_url": "/book/151101-کتاب-صوتی-شازده-کوچولو"
+      },
+      "rate": {
+       "score": 3.8,
+       "responses": 11
+      },
+      "cover": {
+       "image": "https://cdn.fidibo.com/phoenixpub/content/edc14619-2f04-47b7-8acb-fc810f00e309/c6b0bca1-95a7-4757-8f5d-9f9836fe0a2a.jpg",
+       "background": {
+        "r": 97,
+        "g": 100,
+        "b": 107,
+        "a": 0.1
+       }
+      },
+      "badges": {
+       "purchased": 0,
+       "is_gift": 0,
+       "sample": 0,
+       "user_subscription": 0,
+       "in_user_plan": 0,
+       "inform_me": 0,
+       "subscription": 1,
+       "campaign": 0,
+       "favorite": 0,
+       "read": 0,
+       "on_the_table": 0,
+       "tts": 0
+      },
+      "price": 8000,
+      "usd_price": 4,
+      "narrator": "مریم صادقی"
+     }
+    ],
+    "action": {
+     "type": "search_list",
+     "inputs": [
+      {
+       "key": "query",
+       "value": "%D8%B4%D8%A7%D8%B2%D8%AF%D9%87+%DA%A9%D9%88%DA%86%D9%88%D9%84%D9%88"
+      }
+     ],
+     "url": "/search/list/content",
+     "web_url": "/search/list/content?query=%25D8%25B4%25D8%25A7%25D8%25B2%25D8%25AF%25D9%2587%2B%25DA%25A9%25D9%2588%25DA%2586%25D9%2588%25D9%2584%25D9%2588"
+    },
+    "extra_data": {
+     "query_id": "22284D88E7381F73"
+    },
+    "order": 1
+   }
+  ],
+  "total": 78
+ },
+ "error": "",
+ "message": "با موفقیت انجام شد",
+ "represented_at": "2026-10-10 16:52:30.190886",
+ "version": "v1"
+}

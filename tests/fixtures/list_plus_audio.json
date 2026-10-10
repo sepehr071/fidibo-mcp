@@ -1,0 +1,251 @@
+{
+ "data": {
+  "per_page": 4,
+  "result": [
+   {
+    "id": 84590,
+    "uuid": "39ee1b8a-61f7-4493-a48c-3aea24ac1ff4",
+    "status": "published",
+    "title": "سقوط",
+    "subtitle": "آلبر کامو",
+    "footerText": "ماه آوا",
+    "footerTextAction": {
+     "type": "publisher",
+     "url": "/publishers/616",
+     "web_url": "/publishers/616-انتشارات-ماه-آوا"
+    },
+    "format": "mp3",
+    "content_type": "audiobook",
+    "action": {
+     "type": "book",
+     "inputs": [
+      {
+       "key": "slug",
+       "value": "84590-کتاب-صوتی-سقوط"
+      }
+     ],
+     "url": "/flex/book/item/84590",
+     "web_url": "/book/84590-کتاب-صوتی-سقوط"
+    },
+    "rate": {
+     "score": 3.6,
+     "responses": 764
+    },
+    "cover": {
+     "image": "https://cdn.fidibo.com/phoenixpub/content/39ee1b8a-61f7-4493-a48c-3aea24ac1ff4/074ea5a8-354e-4871-ba4b-60fb8dbca5d1.jpg",
+     "background": {
+      "r": 97,
+      "g": 100,
+      "b": 107,
+      "a": 0.1
+     }
+    },
+    "badges": {
+     "purchased": 0,
+     "is_gift": 0,
+     "sample": 0,
+     "user_subscription": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "subscription": 1,
+     "campaign": 1,
+     "favorite": 0,
+     "read": 0,
+     "on_the_table": 0,
+     "tts": 0
+    },
+    "campaign": {
+     "discount_amount": 10,
+     "discounted_price": 166500,
+     "discounted_usd_price": 4.5
+    },
+    "price": 185000,
+    "usd_price": 5,
+    "narrator": "بهرام ابراهیمی"
+   },
+   {
+    "id": 79932,
+    "uuid": "74f3d671-a1c3-4a52-b1cf-6c6000dd575c",
+    "status": "published",
+    "title": "هدف زندگی",
+    "subtitle": "نیک ویجیک",
+    "footerText": "شادن پژواک",
+    "footerTextAction": {
+     "type": "publisher",
+     "url": "/publishers/598",
+     "web_url": "/publishers/598-انتشارات-شادن-پژواک"
+    },
+    "format": "mp3",
+    "content_type": "audiobook",
+    "action": {
+     "type": "book",
+     "inputs": [
+      {
+       "key": "slug",
+       "value": "79932-کتاب-صوتی-هدف-زندگی"
+      }
+     ],
+     "url": "/flex/book/item/79932",
+     "web_url": "/book/79932-کتاب-صوتی-هدف-زندگی"
+    },
+    "rate": {
+     "score": 3.8,
+     "responses": 237
+    },
+    "cover": {
+     "image": "https://cdn.fidibo.com/phoenixpub/content/74f3d671-a1c3-4a52-b1cf-6c6000dd575c/80b3df2c-2c03-4335-845d-3668ec6b4937.jpg",
+     "background": {
+      "r": 97,
+      "g": 100,
+      "b": 107,
+      "a": 0.1
+     }
+    },
+    "badges": {
+     "purchased": 0,
+     "is_gift": 0,
+     "sample": 0,
+     "user_subscription": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "subscription": 1,
+     "campaign": 1,
+     "favorite": 0,
+     "read": 0,
+     "on_the_table": 0,
+     "tts": 0
+    },
+    "campaign": {
+     "discount_amount": 30,
+     "discounted_price": 28000,
+     "discounted_usd_price": 2.1
+    },
+    "price": 40000,
+    "usd_price": 3,
+    "narrator": "حمید سربندی"
+   },
+   {
+    "id": 87739,
+    "uuid": "2f829ae9-27a4-4f7f-9d68-c0225120525a",
+    "status": "published",
+    "title": "چگونه اعتماد به نفس داشته باشیم ؟",
+    "subtitle": "رابین شارما",
+    "footerText": "شادن پژواک",
+    "footerTextAction": {
+     "type": "publisher",
+     "url": "/publishers/598",
+     "web_url": "/publishers/598-انتشارات-شادن-پژواک"
+    },
+    "format": "mp3",
+    "content_type": "audiobook",
+    "action": {
+     "type": "book",
+     "inputs": [
+      {
+       "key": "slug",
+       "value": "87739-کتاب-صوتی-چگونه-اعتماد-به-نفس-داشته-باشیم"
+      }
+     ],
+     "url": "/flex/book/item/87739",
+     "web_url": "/book/87739-کتاب-صوتی-چگونه-اعتماد-به-نفس-داشته-باشیم"
+    },
+    "rate": {
+     "score": 3.4,
+     "responses": 203
+    },
+    "cover": {
+     "image": "https://cdn.fidibo.com/phoenixpub/content/2f829ae9-27a4-4f7f-9d68-c0225120525a/c84a01e1-8ffa-4344-b538-71654f54827e.jpg",
+     "background": {
+      "r": 97,
+      "g": 100,
+      "b": 107,
+      "a": 0.1
+     }
+    },
+    "badges": {
+     "purchased": 0,
+     "is_gift": 0,
+     "sample": 0,
+     "user_subscription": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "subscription": 1,
+     "campaign": 1,
+     "favorite": 0,
+     "read": 0,
+     "on_the_table": 0,
+     "tts": 0
+    },
+    "campaign": {
+     "discount_amount": 30,
+     "discounted_price": 24500,
+     "discounted_usd_price": 2.1
+    },
+    "price": 35000,
+    "usd_price": 3,
+    "narrator": "مهبد قناعت‌پیشه"
+   },
+   {
+    "id": 93755,
+    "uuid": "e5b60927-0b26-4d8c-bdfe-3a53f29e43b5",
+    "status": "published",
+    "title": "پدر پولدار پدر فقیر",
+    "subtitle": "رابرت کیوساکی",
+    "footerText": "شادن پژواک",
+    "footerTextAction": {
+     "type": "publisher",
+     "url": "/publishers/598",
+     "web_url": "/publishers/598-انتشارات-شادن-پژواک"
+    },
+    "format": "mp3",
+    "content_type": "audiobook",
+    "action": {
+     "type": "book",
+     "inputs": [
+      {
+       "key": "slug",
+       "value": "93755-کتاب-صوتی-پدر-پولدار-پدر-فقیر"
+      }
+     ],
+     "url": "/flex/book/item/93755",
+     "web_url": "/book/93755-کتاب-صوتی-پدر-پولدار-پدر-فقیر"
+    },
+    "rate": {
+     "score": 4.5,
+     "responses": 1176
+    },
+    "cover": {
+     "image": "https://cdn.fidibo.com/phoenixpub/content/e5b60927-0b26-4d8c-bdfe-3a53f29e43b5/bdf5a662-d4a4-43f7-984b-b252403e9b3e.jpg",
+     "background": {
+      "r": 97,
+      "g": 100,
+      "b": 107,
+      "a": 0.1
+     }
+    },
+    "badges": {
+     "purchased": 0,
+     "is_gift": 0,
+     "sample": 0,
+     "user_subscription": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "subscription": 1,
+     "campaign": 0,
+     "favorite": 0,
+     "read": 0,
+     "on_the_table": 0,
+     "tts": 0
+    },
+    "price": 150000,
+    "usd_price": 4,
+    "narrator": "معصومه عزیزمحمدی"
+   }
+  ],
+  "total": 150
+ },
+ "error": "",
+ "message": "با موفقیت انجام شد",
+ "represented_at": "2026-10-10 16:52:32.482495",
+ "version": "v1"
+}

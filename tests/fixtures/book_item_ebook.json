@@ -1,0 +1,216 @@
+{
+ "data": {
+  "per_page": 15,
+  "result": [
+   {
+    "action": {
+     "type": "page",
+     "inputs": [
+      {
+       "key": "pageName",
+       "value": "BOOK_OVERVIEW"
+      },
+      {
+       "key": "bookId",
+       "value": "68286"
+      }
+     ],
+     "url": "/flex/page",
+     "event": "immediate"
+    },
+    "authors": [
+     {
+      "action": {
+       "inputs": [],
+       "type": "person",
+       "url": "persons/30198",
+       "web_url": "/contributors/30198-آنتوان-دوسنت-اگزوپری"
+      },
+      "full_name": "آنتوان دوسنت اگزوپری",
+      "id": 30198,
+      "last_name": "آنتوان دوسنت اگزوپری",
+      "name": "",
+      "order": 1,
+      "slug": "30198-آنتوان-دوسنت-اگزوپری",
+      "uuid": "b33e447d-5a80-4413-91fe-d51edd7a807a"
+     }
+    ],
+    "badges": {
+     "campaign": 1,
+     "favorite": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "is_gift": 0,
+     "on_the_table": 0,
+     "purchased": 0,
+     "read": 0,
+     "sample": 0,
+     "subscription": 1,
+     "tts": 0,
+     "user_subscription": 0
+    },
+    "breadcrumb": [
+     {
+      "action": {
+       "inputs": [
+        {
+         "key": "levelZeroId",
+         "value": 1
+        }
+       ],
+       "type": "ZERO_CATEGORY_PAGE",
+       "url": "/flex/lvl-zero/ebooks",
+       "web_url": "/ebooks"
+      },
+      "id": 1,
+      "name": "کتاب الکترونیکی",
+      "position": 0
+     },
+     {
+      "action": {
+       "inputs": [],
+       "type": "category_page",
+       "url": "/ebooks/categories/story",
+       "web_url": "/ebooks/story"
+      },
+      "id": 2,
+      "name": "داستان و رمان",
+      "position": 1,
+      "uuid": "bec6b962-0e29-480d-9dc0-e57e70143ad2"
+     },
+     {
+      "action": {
+       "inputs": [],
+       "type": "category_page",
+       "url": "/ebooks/categories/story-foreign",
+       "web_url": "/ebooks/story-foreign"
+      },
+      "id": 106,
+      "name": "داستان و رمان خارجی",
+      "position": 2,
+      "uuid": "18a593dd-ac3d-49ff-9227-2ccfa68b1f08"
+     },
+     {
+      "action": {
+       "inputs": [],
+       "type": "category_page",
+       "url": "/ebooks/categories/story-foreign-drama",
+       "web_url": "/ebooks/story-foreign-drama"
+      },
+      "id": 449,
+      "name": "درام",
+      "position": 3,
+      "uuid": "c37db564-9bb4-4077-9d7b-2560c0c9e765"
+     }
+    ],
+    "campaign": {
+     "discount_amount": 10,
+     "discounted_price": 44100,
+     "discounted_usd_price": 2.7
+    },
+    "content_type": "ebook",
+    "content_type_uuid": "e2abda93-7b67-4fb0-a0f0-784c83c67cc4",
+    "cover": {
+     "background": {
+      "a": 0.1,
+      "b": 107,
+      "g": 100,
+      "r": 97
+     },
+     "image": "https://cdn.fidibo.com/phoenixpub/content/0778c069-de7f-4fe1-85ee-8230a2d27190/bc62ce99-b996-4c0f-88d7-fd9ee9e42230.jpg"
+    },
+    "format": "epub",
+    "id": 68286,
+    "impressions": [
+     {
+      "responses": 28,
+      "title": "حال‌خوب‌کن ✨"
+     },
+     {
+      "responses": 18,
+      "title": "آرامش‌بخش 🌱"
+     },
+     {
+      "responses": 15,
+      "title": "آموزنده 🦉"
+     },
+     {
+      "responses": 15,
+      "title": "انگیزه‌بخش 🚀"
+     },
+     {
+      "responses": 15,
+      "title": "پربار 🌳"
+     },
+     {
+      "responses": 14,
+      "title": "گیرا 🧲"
+     }
+    ],
+    "lang": "FARSI",
+    "original_title": "Le petit prince",
+    "pages_count": "128",
+    "price": 49000,
+    "price_usd": 3,
+    "publish_date": "۱۳۹۶/۰۵/۰۲",
+    "publishers": [
+     {
+      "action": {
+       "inputs": [],
+       "type": "publisher",
+       "url": "/publishers/221",
+       "web_url": "/publishers/221-انتشارات-مجید"
+      },
+      "description": "",
+      "id": 221,
+      "image": "publisher/1784bc97-fff3-4603-8352-c62e0c375449/image.png",
+      "name": "مجید",
+      "slug": "221-انتشارات-مجید",
+      "uuid": "1784bc97-fff3-4603-8352-c62e0c375449"
+     }
+    ],
+    "rate": {
+     "action": {
+      "inputs": [
+       {
+        "key": "resource_id",
+        "value": "68286"
+       }
+      ],
+      "type": "rate",
+      "url": "/ratereview/api/client/v1/responses"
+     },
+     "responses": 20850,
+     "score": 4.3
+    },
+    "share_url": "https://fidibo.com/book/68286-کتاب-شازده-کوچولو",
+    "slug": "68286-کتاب-شازده-کوچولو",
+    "status": "published",
+    "title": "شازده کوچولو",
+    "translators": [
+     {
+      "action": {
+       "inputs": [],
+       "type": "person",
+       "url": "persons/676",
+       "web_url": "/contributors/676-پرویز-شهدی"
+      },
+      "full_name": "پرویز شهدی",
+      "id": 676,
+      "last_name": "شهدی",
+      "name": "پرویز",
+      "order": 2,
+      "slug": "676-پرویز-شهدی",
+      "uuid": "5f19d3b8-f957-449f-885d-d978c98baeb0"
+     }
+    ],
+    "uuid": "0778c069-de7f-4fe1-85ee-8230a2d27190"
+   }
+  ],
+  "total": 1
+ },
+ "error": "",
+ "message": "با موفقیت انجام شد",
+ "represented_at": "2026-10-10 16:38:03.533450",
+ "version": "v1"
+}

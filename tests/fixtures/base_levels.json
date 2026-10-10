@@ -1,0 +1,308 @@
+{
+ "data": {
+  "per_page": 15,
+  "result": [
+   {
+    "id": 1,
+    "uuid": "7c3f55c3-a0d8-414e-bf95-48ac50630b4a",
+    "title": "کتاب الکترونیکی",
+    "icon": "https://cdn.fidibo.com/phoenixpub/general/icons/ebook.svg",
+    "class_icon": "fidibo-book-outline",
+    "order": 1,
+    "level_zero_slug": "ebooks",
+    "categories": [
+     {
+      "uuid": "18a593dd-ac3d-49ff-9227-2ccfa68b1f08",
+      "title": "داستان و رمان خارجی",
+      "slug": "story-foreign",
+      "icon": "https://cdn.fidibo.com/phoenixpub/category/18a593dd-ac3d-49ff-9227-2ccfa68b1f08/icon.svg",
+      "class_icon": "fidibo-novel-world",
+      "subcategories": [
+       {
+        "uuid": "c37db564-9bb4-4077-9d7b-2560c0c9e765",
+        "title": "درام",
+        "slug": "story-foreign-drama",
+        "action": {
+         "type": "category_page",
+         "url": "/ebooks/categories/story-foreign-drama",
+         "web_url": "/ebooks/story-foreign-drama"
+        }
+       },
+       {
+        "uuid": "18f0a8ce-7c5a-4724-bf42-83eabb3b2f9f",
+        "title": "فانتزی",
+        "slug": "story-foreign-fantasy",
+        "action": {
+         "type": "category_page",
+         "url": "/ebooks/categories/story-foreign-fantasy",
+         "web_url": "/ebooks/story-foreign-fantasy"
+        }
+       },
+       {
+        "uuid": "8d79e558-7c28-47fc-9cc5-581bea5efa5e",
+        "title": "عاشقانه",
+        "slug": "story-foreign-romantic",
+        "action": {
+         "type": "category_page",
+         "url": "/ebooks/categories/story-foreign-romantic",
+         "web_url": "/ebooks/story-foreign-romantic"
+        }
+       }
+      ],
+      "action": {
+       "type": "category_page",
+       "url": "/ebooks/categories/story-foreign",
+       "web_url": "/ebooks/story-foreign"
+      }
+     },
+     {
+      "uuid": "f2a4249e-6b47-4972-ab0c-fd6c48528a28",
+      "title": "داستان و رمان فارسی",
+      "slug": "story-persian",
+      "icon": "https://cdn.fidibo.com/phoenixpub/category/f2a4249e-6b47-4972-ab0c-fd6c48528a28/icon.svg",
+      "class_icon": "fidibo-novel-iran",
+      "subcategories": [
+       {
+        "uuid": "be19f675-81c5-4219-9689-55c9b09492db",
+        "title": "درام",
+        "slug": "story-persian-drama",
+        "action": {
+         "type": "category_page",
+         "url": "/ebooks/categories/story-persian-drama",
+         "web_url": "/ebooks/story-persian-drama"
+        }
+       },
+       {
+        "uuid": "9f33569b-7d76-467a-9177-7c192fedee67",
+        "title": "فانتزی",
+        "slug": "story-persian-fantasy",
+        "action": {
+         "type": "category_page",
+         "url": "/ebooks/categories/story-persian-fantasy",
+         "web_url": "/ebooks/story-persian-fantasy"
+        }
+       },
+       {
+        "uuid": "dce41d2f-54f4-4b1f-8ba4-4b75a5ef9590",
+        "title": "عاشقانه",
+        "slug": "story-persian-romantic",
+        "action": {
+         "type": "category_page",
+         "url": "/ebooks/categories/story-persian-romantic",
+         "web_url": "/ebooks/story-persian-romantic"
+        }
+       }
+      ],
+      "action": {
+       "type": "category_page",
+       "url": "/ebooks/categories/story-persian",
+       "web_url": "/ebooks/story-persian"
+      }
+     },
+     {
+      "uuid": "e2a56e27-ac26-4271-81d7-379a2723fa0a",
+      "title": "روانشناسی",
+      "slug": "psychology",
+      "icon": "https://cdn.fidibo.com/phoenixpub/category/e2a56e27-ac26-4271-81d7-379a2723fa0a/icon.svg",
+      "class_icon": "fidibo-brain",
+      "subcategories": [
+       {
+        "uuid": "726a00a4-5268-4902-a73c-eb0e89430830",
+        "title": "توسعه فردی",
+        "slug": "psychology-personal-development",
+        "action": {
+         "type": "category_page",
+         "url": "/ebooks/categories/psychology-personal-development",
+         "web_url": "/ebooks/psychology-personal-development"
+        }
+       },
+       {
+        "uuid": "c38bd357-818a-420f-82ed-2978ae4bd872",
+        "title": "موفقیت و انگیزشی",
+        "slug": "psychology-success-motivational",
+        "action": {
+         "type": "category_page",
+         "url": "/ebooks/categories/psychology-success-motivational",
+         "web_url": "/ebooks/psychology-success-motivational"
+        }
+       },
+       {
+        "uuid": "e168a0a9-c811-4954-8f88-13c38574e263",
+        "title": "ازدواج، خانواده و زناشویی",
+        "slug": "psychology-marriage-family",
+        "action": {
+         "type": "category_page",
+         "url": "/ebooks/categories/psychology-marriage-family",
+         "web_url": "/ebooks/psychology-marriage-family"
+        }
+       }
+      ],
+      "action": {
+       "type": "category_page",
+       "url": "/ebooks/categories/psychology",
+       "web_url": "/ebooks/psychology"
+      }
+     }
+    ],
+    "action": {
+     "type": "category",
+     "url": "/lvl-zero/ebooks",
+     "web_url": "/ebooks"
+    }
+   },
+   {
+    "id": 2,
+    "uuid": "342c9993-cfba-4f3b-8603-93375a586b14",
+    "title": "کتاب صوتی",
+    "icon": "https://cdn.fidibo.com/phoenixpub/general/icons/audiobook.svg",
+    "class_icon": "fidibo-volume-up-outline",
+    "order": 2,
+    "level_zero_slug": "audiobooks",
+    "categories": [
+     {
+      "uuid": "f9335292-c78a-42cf-aad8-cba8f195cb1b",
+      "title": "داستان و رمان خارجی",
+      "slug": "story-foreign",
+      "icon": "https://cdn.fidibo.com/phoenixpub/category/f9335292-c78a-42cf-aad8-cba8f195cb1b/icon.svg",
+      "class_icon": "fidibo-novel-world",
+      "subcategories": [
+       {
+        "uuid": "ca103a35-da79-4de0-a289-19e698e99446",
+        "title": "درام",
+        "slug": "story-foreign-drama",
+        "action": {
+         "type": "category_page",
+         "url": "/audiobooks/categories/story-foreign-drama",
+         "web_url": "/audiobooks/story-foreign-drama"
+        }
+       },
+       {
+        "uuid": "30449767-f4e1-4023-aa8c-c6ed2ef62d87",
+        "title": "فانتزی",
+        "slug": "story-foreign-fantasy",
+        "action": {
+         "type": "category_page",
+         "url": "/audiobooks/categories/story-foreign-fantasy",
+         "web_url": "/audiobooks/story-foreign-fantasy"
+        }
+       },
+       {
+        "uuid": "628172bb-3b8e-4443-8729-0e1cc523d8ad",
+        "title": "عاشقانه",
+        "slug": "story-foreign-romantic",
+        "action": {
+         "type": "category_page",
+         "url": "/audiobooks/categories/story-foreign-romantic",
+         "web_url": "/audiobooks/story-foreign-romantic"
+        }
+       }
+      ],
+      "action": {
+       "type": "category_page",
+       "url": "/audiobooks/categories/story-foreign",
+       "web_url": "/audiobooks/story-foreign"
+      }
+     },
+     {
+      "uuid": "824fcba5-1ea3-4863-a94c-60a16ee61d72",
+      "title": "داستان و رمان فارسی",
+      "slug": "story-persian",
+      "icon": "https://cdn.fidibo.com/phoenixpub/category/824fcba5-1ea3-4863-a94c-60a16ee61d72/icon.svg",
+      "class_icon": "fidibo-novel-iran",
+      "subcategories": [
+       {
+        "uuid": "2ddf762c-aa6e-4124-acfe-8e0dd6a282d9",
+        "title": "درام",
+        "slug": "story-persian-drama",
+        "action": {
+         "type": "category_page",
+         "url": "/audiobooks/categories/story-persian-drama",
+         "web_url": "/audiobooks/story-persian-drama"
+        }
+       },
+       {
+        "uuid": "bc5bd285-92d9-49a0-a835-fa39a2f9ab0a",
+        "title": "فانتزی",
+        "slug": "story-persian-fantasy",
+        "action": {
+         "type": "category_page",
+         "url": "/audiobooks/categories/story-persian-fantasy",
+         "web_url": "/audiobooks/story-persian-fantasy"
+        }
+       },
+       {
+        "uuid": "92406399-7bf5-429c-ae0d-22bd55e674ab",
+        "title": "عاشقانه",
+        "slug": "story-persian-romantic",
+        "action": {
+         "type": "category_page",
+         "url": "/audiobooks/categories/story-persian-romantic",
+         "web_url": "/audiobooks/story-persian-romantic"
+        }
+       }
+      ],
+      "action": {
+       "type": "category_page",
+       "url": "/audiobooks/categories/story-persian",
+       "web_url": "/audiobooks/story-persian"
+      }
+     },
+     {
+      "uuid": "5ae23d89-d38b-4a29-ba8b-1c6eef560dcf",
+      "title": "روانشناسی",
+      "slug": "psychology",
+      "icon": "https://cdn.fidibo.com/phoenixpub/category/5ae23d89-d38b-4a29-ba8b-1c6eef560dcf/icon.svg",
+      "class_icon": "fidibo-brain",
+      "subcategories": [
+       {
+        "uuid": "84bbbb11-260a-4554-8e56-bad4e236f792",
+        "title": "توسعه فردی",
+        "slug": "psychology-personal-development",
+        "action": {
+         "type": "category_page",
+         "url": "/audiobooks/categories/psychology-personal-development",
+         "web_url": "/audiobooks/psychology-personal-development"
+        }
+       },
+       {
+        "uuid": "869f7e3b-3439-41fe-add4-3a277307f8a5",
+        "title": "موفقیت و انگیزشی",
+        "slug": "psychology-success-motivational",
+        "action": {
+         "type": "category_page",
+         "url": "/audiobooks/categories/psychology-success-motivational",
+         "web_url": "/audiobooks/psychology-success-motivational"
+        }
+       },
+       {
+        "uuid": "9be65b42-d42c-4c5e-a192-fa2dee939d2e",
+        "title": "ازدواج، خانواده و زناشویی",
+        "slug": "psychology-marriage-family",
+        "action": {
+         "type": "category_page",
+         "url": "/audiobooks/categories/psychology-marriage-family",
+         "web_url": "/audiobooks/psychology-marriage-family"
+        }
+       }
+      ],
+      "action": {
+       "type": "category_page",
+       "url": "/audiobooks/categories/psychology",
+       "web_url": "/audiobooks/psychology"
+      }
+     }
+    ],
+    "action": {
+     "type": "category",
+     "url": "/lvl-zero/audiobooks",
+     "web_url": "/audiobooks"
+    }
+   }
+  ],
+  "total": 1
+ },
+ "error": "",
+ "message": "با موفقیت انجام شد",
+ "represented_at": "2026-10-10 16:41:17.178459",
+ "version": "v1"
+}

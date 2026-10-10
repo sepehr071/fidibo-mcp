@@ -1,0 +1,253 @@
+{
+ "data": {
+  "per_page": 15,
+  "result": [
+   {
+    "action": {
+     "type": "page",
+     "inputs": [
+      {
+       "key": "pageName",
+       "value": "BOOK_OVERVIEW"
+      },
+      {
+       "key": "bookId",
+       "value": "88132"
+      }
+     ],
+     "url": "/flex/page",
+     "event": "immediate"
+    },
+    "authors": [
+     {
+      "action": {
+       "inputs": [],
+       "type": "person",
+       "url": "persons/30198",
+       "web_url": "/contributors/30198-آنتوان-دوسنت-اگزوپری"
+      },
+      "full_name": "آنتوان دوسنت اگزوپری",
+      "id": 30198,
+      "last_name": "آنتوان دوسنت اگزوپری",
+      "name": "",
+      "slug": "30198-آنتوان-دوسنت-اگزوپری",
+      "uuid": "ba5d4471-d80f-473d-860c-eb505baa2f8d"
+     }
+    ],
+    "badges": {
+     "campaign": 0,
+     "favorite": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "is_gift": 0,
+     "on_the_table": 0,
+     "purchased": 0,
+     "read": 0,
+     "sample": 0,
+     "subscription": 1,
+     "tts": 0,
+     "user_subscription": 0
+    },
+    "breadcrumb": [
+     {
+      "action": {
+       "inputs": [
+        {
+         "key": "levelZeroId",
+         "value": 2
+        }
+       ],
+       "type": "ZERO_CATEGORY_PAGE",
+       "url": "/flex/lvl-zero/audiobooks",
+       "web_url": "/audiobooks"
+      },
+      "id": 2,
+      "name": "کتاب صوتی",
+      "position": 0
+     },
+     {
+      "action": {
+       "inputs": [],
+       "type": "category_page",
+       "url": "/audiobooks/categories/story",
+       "web_url": "/audiobooks/story"
+      },
+      "id": 27,
+      "name": "داستان و رمان",
+      "position": 1,
+      "uuid": "dedb94d8-a05d-4927-93b5-37c009274a80"
+     },
+     {
+      "action": {
+       "inputs": [],
+       "type": "category_page",
+       "url": "/audiobooks/categories/story-foreign",
+       "web_url": "/audiobooks/story-foreign"
+      },
+      "id": 210,
+      "name": "داستان و رمان خارجی",
+      "position": 2,
+      "uuid": "f9335292-c78a-42cf-aad8-cba8f195cb1b"
+     },
+     {
+      "action": {
+       "inputs": [],
+       "type": "category_page",
+       "url": "/audiobooks/categories/story-foreign-short-story",
+       "web_url": "/audiobooks/story-foreign-short-story"
+      },
+      "id": 489,
+      "name": "داستان کوتاه خارجی",
+      "position": 3,
+      "uuid": "0b7a9390-67cd-4685-8c2e-0ee1464117da"
+     }
+    ],
+    "content_type": "audiobook",
+    "content_type_uuid": "617a680d-ff93-4fa1-906c-287724754e96",
+    "cover": {
+     "background": {
+      "a": 0.1,
+      "b": 107,
+      "g": 100,
+      "r": 97
+     },
+     "image": "https://cdn.fidibo.com/phoenixpub/content/c1214eb7-547c-4898-b3df-ca3d7f241dec/6627463a-758a-4491-a911-bddfc2a11cff.jpg"
+    },
+    "format": "mp3",
+    "id": 88132,
+    "impressions": [
+     {
+      "responses": 108,
+      "title": "حال‌خوب‌کن ✨"
+     },
+     {
+      "responses": 73,
+      "title": "اجرای روان 🎙️"
+     },
+     {
+      "responses": 64,
+      "title": "آرامش‌بخش 🌱"
+     },
+     {
+      "responses": 59,
+      "title": "سرگرم‌کننده 🧩"
+     },
+     {
+      "responses": 51,
+      "title": "آموزنده 🦉"
+     },
+     {
+      "responses": 43,
+      "title": "گیرا 🧲"
+     }
+    ],
+    "lang": "FARSI",
+    "narrators": [
+     {
+      "action": {
+       "inputs": [],
+       "type": "person",
+       "url": "persons/285",
+       "web_url": "/contributors/285-ابوالحسن-تهامی"
+      },
+      "full_name": "ابوالحسن تهامی",
+      "id": 285,
+      "last_name": "تهامی",
+      "name": "ابوالحسن",
+      "slug": "285-ابوالحسن-تهامی",
+      "uuid": "3d8466cf-1ac8-43a5-8ee3-5a1594589cf7"
+     },
+     {
+      "action": {
+       "inputs": [],
+       "type": "person",
+       "url": "persons/30263",
+       "web_url": "/contributors/30263-بهاره-رهنما"
+      },
+      "full_name": "بهاره رهنما",
+      "id": 30263,
+      "last_name": "رهنما",
+      "name": "بهاره",
+      "slug": "30263-بهاره-رهنما",
+      "uuid": "300c9859-6fc3-499d-9875-265e1e5cf7aa"
+     },
+     {
+      "action": {
+       "inputs": [],
+       "type": "person",
+       "url": "persons/40637",
+       "web_url": "/contributors/40637-ژرژ-پطروسی"
+      },
+      "full_name": "ژرژ پطروسی",
+      "id": 40637,
+      "last_name": "پطروسی",
+      "name": "ژرژ",
+      "slug": "40637-ژرژ-پطروسی",
+      "uuid": "64a2cb07-b9fc-417f-979b-1c7f80fb392d"
+     }
+    ],
+    "price": 200000,
+    "price_usd": 3,
+    "publish_date": "۱۳۹۷/۱۲/۱۲",
+    "publishers": [
+     {
+      "action": {
+       "inputs": [],
+       "type": "publisher",
+       "url": "/publishers/83",
+       "web_url": "/publishers/83-انتشارات-نگاه"
+      },
+      "description": "",
+      "id": 83,
+      "image": "publisher/c40456af-d2a4-41d9-b640-e5c9a0ec5f6e/image.jpg",
+      "name": "انتشارات نگاه",
+      "slug": "83-انتشارات-نگاه",
+      "uuid": "c40456af-d2a4-41d9-b640-e5c9a0ec5f6e"
+     }
+    ],
+    "rate": {
+     "action": {
+      "inputs": [
+       {
+        "key": "resource_id",
+        "value": "88132"
+       }
+      ],
+      "type": "rate",
+      "url": "/ratereview/api/client/v1/responses"
+     },
+     "responses": 968,
+     "score": 4.5
+    },
+    "share_url": "https://fidibo.com/book/88132-کتاب-صوتی-شازده-کوچولو",
+    "slug": "88132-کتاب-صوتی-شازده-کوچولو",
+    "status": "published",
+    "time": "01:30:32",
+    "title": "شازده کوچولو",
+    "translators": [
+     {
+      "action": {
+       "inputs": [],
+       "type": "person",
+       "url": "persons/8",
+       "web_url": "/contributors/8-احمد-شاملو"
+      },
+      "full_name": "احمد شاملو",
+      "id": 8,
+      "image": "person/def87bff-034f-4fe9-8026-9625d76a175d/image.jfif",
+      "last_name": "شاملو",
+      "name": "احمد",
+      "slug": "8-احمد-شاملو",
+      "uuid": "30377154-3414-4ba4-b9ec-8059f3c79d64"
+     }
+    ],
+    "uuid": "c1214eb7-547c-4898-b3df-ca3d7f241dec"
+   }
+  ],
+  "total": 1
+ },
+ "error": "",
+ "message": "با موفقیت انجام شد",
+ "represented_at": "2026-10-10 16:38:05.322142",
+ "version": "v1"
+}

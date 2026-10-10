@@ -1,0 +1,178 @@
+{
+ "data": {
+  "per_page": 25,
+  "result": [
+   {
+    "component": "BOOK_INTRODUCTION",
+    "title": "درباره شازده کوچولو",
+    "subtitle": "معرفی",
+    "items": [
+     {
+      "introduction": {
+       "title": "درباره شازده کوچولو",
+       "description": "<p class=\"ql-direction-rtl ql-align-right\"><span >کتاب شازده کوچولو اثر</span><a href=\"https://fidibo.com/contributors/30198-%D8%A2%D9%86%D8%AA%D9%88%D8%A7%D9%86-%D8%AF%D9%88%D8%B3%D9%86%D8%AA-%D8%A7%DA%AF%D8%B2%D9%88%D9%BE%D8%B1%DB%8C\" rel=\"noopener noreferrer\" target=\"_blank\" > </a><a href=\"https://fidibo.com/contributors/30198-%D8%A2%D9%86%D8%AA%D9%88%D8%A7%D9%86-%D8%AF%D9%88%D8%B3%D9%86%D8%AA-%D8%A7%DA%AF%D8%B2%D9%88%D9%BE%D8%B1%DB%8C\" rel=\"noopener noreferrer\" target=\"_blank\" ><strong>آنتوان دوسنت اگزوپری</strong></a><span >، یکی از پرفروش‌ترین و محبوب‌ترین آثار ادبی جهان است که مرز میان ",
+       "short_description": "کتاب شازده کوچولو اثر آنتوان دوسنت اگزوپری، یکی از پرفروش‌ترین و محبوب‌ترین آثار ادبی جهان است که مرز میان ادبیات کودک و بزرگسال را از بین می‌برد. این کتاب کوتاه اما عمیق، داستان پسربچه‌ای را روایت می‌کند که از سیاره‌ای کوچک به سفری میان ستارگان می‌رود و در مسیر خود ..."
+      },
+      "categories": [
+       {
+        "id": 449,
+        "name": "درام",
+        "action": {
+         "type": "category",
+         "url": "flex/ebooks/categories/story-foreign-drama",
+         "web_url": "/ebooks/story-foreign-drama"
+        }
+       }
+      ]
+     }
+    ],
+    "order": 1
+   },
+   {
+    "component": "BOOK_SPECIFICATION",
+    "title": "شناسنامه",
+    "items": [
+     {
+      "content_type": "ebook",
+      "specifications": [
+       {
+        "title": "فرمت محتوا",
+        "sub_title": "epub",
+        "image": "https://cdn.fidibo.com/phoenixpub/images/flex/general/92b4a5a8-af62-492e-abc6-ba530da43824.svg"
+       },
+       {
+        "title": "حجم",
+        "sub_title": "۱.۹۱ مگابایت",
+        "image": "https://cdn.fidibo.com/phoenixpub/images/flex/general/7d43ecfc-c022-4726-a1d4-bac698f8fcad.svg"
+       },
+       {
+        "title": "تعداد صفحات",
+        "sub_title": "۱۲۸ صفحه",
+        "image": "https://cdn.fidibo.com/phoenixpub/images/flex/general/60d3d472-d707-4525-b266-dd236a0f3c49.svg"
+       },
+       {
+        "title": "زمان تقریبی مطالعه",
+        "sub_title": "۰۰:۰۰"
+       },
+       {
+        "id": 30198,
+        "slug": "30198-آنتوان-دوسنت-اگزوپری",
+        "title": "نویسنده",
+        "sub_title": " آنتوان دوسنت اگزوپری",
+        "action": {
+         "type": "person",
+         "url": "persons/30198",
+         "web_url": "/contributors/30198-آنتوان-دوسنت-اگزوپری"
+        }
+       },
+       {
+        "id": 676,
+        "slug": "676-پرویز-شهدی",
+        "title": "مترجم",
+        "sub_title": "پرویز شهدی",
+        "action": {
+         "type": "person",
+         "url": "persons/676",
+         "web_url": "/contributors/676-پرویز-شهدی"
+        }
+       },
+       {
+        "title": "ناشر",
+        "sub_title": "مجید",
+        "action": {
+         "type": "publisher",
+         "inputs": [
+          {
+           "key": "publisherId",
+           "value": "221"
+          }
+         ],
+         "url": "/publishers/221",
+         "web_url": "/publishers/221-انتشارات-مجید"
+        }
+       },
+       {
+        "title": "زبان",
+        "sub_title": "فارسی"
+       },
+       {
+        "title": "عنوان انگلیسی",
+        "sub_title": "Le petit prince"
+       },
+       {
+        "title": "تاریخ انتشار",
+        "sub_title": "۱۳۹۶/۰۵/۰۲"
+       },
+       {
+        "title": "قیمت ارزی",
+        "sub_title": "۳ دلار"
+       },
+       {
+        "title": "قیمت چاپی",
+        "sub_title": "۶۰۰۰۰ تومان"
+       },
+       {
+        "title": "مطالعه و دانلود فایل",
+        "sub_title": "فقط در فیدیبو"
+       }
+      ],
+      "toc_action": {
+       "type": "toc",
+       "url": "flex/book/toc/68286"
+      }
+     }
+    ],
+    "order": 2
+   },
+   {
+    "component": "BOOK_RATE",
+    "items": [
+     {
+      "score": 4.3,
+      "responses": 20851,
+      "reviews": 67,
+      "title": "براساس رأی 20851 مخاطب",
+      "choices": [
+       {
+        "responses": 28,
+        "title": "حال‌خوب‌کن ✨"
+       },
+       {
+        "responses": 18,
+        "title": "آرامش‌بخش 🌱"
+       }
+      ],
+      "distribution": [
+       {
+        "percent": 4,
+        "score": 1
+       },
+       {
+        "percent": 3,
+        "score": 2
+       },
+       {
+        "percent": 9,
+        "score": 3
+       },
+       {
+        "percent": 16,
+        "score": 4
+       },
+       {
+        "percent": 65,
+        "score": 5
+       }
+      ]
+     }
+    ],
+    "order": 7
+   }
+  ],
+  "total": 100
+ },
+ "error": "",
+ "message": "با موفقیت انجام شد",
+ "represented_at": "2026-10-10 16:38:14.613288",
+ "version": "v1"
+}

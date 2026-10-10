@@ -1,0 +1,224 @@
+{
+ "data": {
+  "per_page": 4,
+  "result": [
+   {
+    "id": 64156,
+    "uuid": "092738d8-68de-494a-924c-34a28016b084",
+    "status": "published",
+    "title": "9 مرد موفق، 90 رمز موفقیت",
+    "subtitle": "گروه نویسندگان",
+    "footerText": "شبکه",
+    "footerTextAction": {
+     "type": "publisher",
+     "url": "/publishers/362",
+     "web_url": "/publishers/362-انتشارات-شبکه"
+    },
+    "format": "epub",
+    "content_type": "ebook",
+    "action": {
+     "type": "book",
+     "inputs": [
+      {
+       "key": "slug",
+       "value": "64156-کتاب-9-مرد-موفق-90-رمز-موفقیت"
+      }
+     ],
+     "url": "/flex/book/item/64156",
+     "web_url": "/book/64156-کتاب-9-مرد-موفق-90-رمز-موفقیت"
+    },
+    "rate": {
+     "score": 4.1,
+     "responses": 755
+    },
+    "cover": {
+     "image": "https://cdn.fidibo.com/phoenixpub/content/092738d8-68de-494a-924c-34a28016b084/fc05062e-50e3-4cb4-9c68-e53359ed4ea5.jpg",
+     "background": {
+      "r": 97,
+      "g": 100,
+      "b": 107,
+      "a": 0.1
+     }
+    },
+    "badges": {
+     "purchased": 0,
+     "is_gift": 0,
+     "sample": 0,
+     "user_subscription": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "subscription": 0,
+     "campaign": 0,
+     "favorite": 0,
+     "read": 0,
+     "on_the_table": 0,
+     "tts": 0
+    }
+   },
+   {
+    "id": 7345,
+    "uuid": "abb24dde-8cdb-4a0c-8b6e-701fe3399126",
+    "status": "published",
+    "title": "هری پاتر و فرزند نفرین شده",
+    "subtitle": " جی کی رولینگ",
+    "footerText": "فیدیبو",
+    "footerTextAction": {
+     "type": "publisher",
+     "url": "/publishers/156",
+     "web_url": "/publishers/156-انتشارات-فیدیبو"
+    },
+    "format": "epub",
+    "content_type": "ebook",
+    "action": {
+     "type": "book",
+     "inputs": [
+      {
+       "key": "slug",
+       "value": "7345-کتاب-هری-پاتر-فرزند-نفرین-شده"
+      }
+     ],
+     "url": "/flex/book/item/7345",
+     "web_url": "/book/7345-کتاب-هری-پاتر-فرزند-نفرین-شده"
+    },
+    "rate": {
+     "score": 4.5,
+     "responses": 2116
+    },
+    "cover": {
+     "image": "https://cdn.fidibo.com/phoenixpub/content/abb24dde-8cdb-4a0c-8b6e-701fe3399126/d3b18abe-734c-4cd4-8116-9a50c3b0b346.jpg",
+     "background": {
+      "r": 97,
+      "g": 100,
+      "b": 107,
+      "a": 0.1
+     }
+    },
+    "badges": {
+     "purchased": 0,
+     "is_gift": 0,
+     "sample": 0,
+     "user_subscription": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "subscription": 0,
+     "campaign": 0,
+     "favorite": 0,
+     "read": 0,
+     "on_the_table": 0,
+     "tts": 0
+    }
+   },
+   {
+    "id": 4317,
+    "uuid": "27e8fdd8-b675-4be3-a395-46acb3b55f39",
+    "status": "published",
+    "title": "دور دنیا در هشتاد روز",
+    "subtitle": "ژول ورن",
+    "footerText": "فیدیبو",
+    "footerTextAction": {
+     "type": "publisher",
+     "url": "/publishers/156",
+     "web_url": "/publishers/156-انتشارات-فیدیبو"
+    },
+    "format": "epub",
+    "content_type": "ebook",
+    "action": {
+     "type": "book",
+     "inputs": [
+      {
+       "key": "slug",
+       "value": "4317-کتاب-دور-دنیا-هشتاد-روز"
+      }
+     ],
+     "url": "/flex/book/item/4317",
+     "web_url": "/book/4317-کتاب-دور-دنیا-هشتاد-روز"
+    },
+    "rate": {
+     "score": 4.6,
+     "responses": 1271
+    },
+    "cover": {
+     "image": "https://cdn.fidibo.com/phoenixpub/content/27e8fdd8-b675-4be3-a395-46acb3b55f39/3a0f2b31-438b-4ffb-8dbc-97b3656d2244.jpg",
+     "background": {
+      "r": 97,
+      "g": 100,
+      "b": 107,
+      "a": 0.1
+     }
+    },
+    "badges": {
+     "purchased": 0,
+     "is_gift": 0,
+     "sample": 0,
+     "user_subscription": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "subscription": 0,
+     "campaign": 0,
+     "favorite": 0,
+     "read": 0,
+     "on_the_table": 0,
+     "tts": 0
+    }
+   },
+   {
+    "id": 68028,
+    "uuid": "72ae6e39-40e0-412e-9431-1552e9ded55f",
+    "status": "published",
+    "title": "استیون هاوکینگ",
+    "subtitle": "مهدی مومن زاده",
+    "footerText": "فیدیبو",
+    "footerTextAction": {
+     "type": "publisher",
+     "url": "/publishers/156",
+     "web_url": "/publishers/156-انتشارات-فیدیبو"
+    },
+    "format": "epub",
+    "content_type": "ebook",
+    "action": {
+     "type": "book",
+     "inputs": [
+      {
+       "key": "slug",
+       "value": "68028-کتاب-استیون-هاوکینگ"
+      }
+     ],
+     "url": "/flex/book/item/68028",
+     "web_url": "/book/68028-کتاب-استیون-هاوکینگ"
+    },
+    "rate": {
+     "score": 4.1,
+     "responses": 638
+    },
+    "cover": {
+     "image": "https://cdn.fidibo.com/phoenixpub/content/72ae6e39-40e0-412e-9431-1552e9ded55f/db4fdce6-ec8f-4fbf-ab68-b3c067c3ee2a.jpg",
+     "background": {
+      "r": 97,
+      "g": 100,
+      "b": 107,
+      "a": 0.1
+     }
+    },
+    "badges": {
+     "purchased": 0,
+     "is_gift": 0,
+     "sample": 0,
+     "user_subscription": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "subscription": 0,
+     "campaign": 0,
+     "favorite": 0,
+     "read": 0,
+     "on_the_table": 0,
+     "tts": 0
+    }
+   }
+  ],
+  "total": 150
+ },
+ "error": "",
+ "message": "با موفقیت انجام شد",
+ "represented_at": "2026-10-10 16:52:31.320945",
+ "version": "v1"
+}

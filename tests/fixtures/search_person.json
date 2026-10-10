@@ -1,0 +1,87 @@
+{
+ "data": {
+  "per_page": 15,
+  "result": [
+   {
+    "component": "PERSON_LIST",
+    "title": "مؤلف",
+    "items": [
+     {
+      "id": 30198,
+      "uuid": "eac287f0-43b7-427d-961a-2778f7c64194",
+      "name": "آنتوان دوسنت <b>اگزوپری</b>",
+      "logo": "",
+      "cover": "",
+      "slug": "30198-آنتوان-دوسنت-اگزوپری",
+      "roles": [
+       "مترجم"
+      ],
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z",
+      "action": {
+       "type": "person",
+       "url": "persons/30198",
+       "web_url": "/contributors/30198-آنتوان-دوسنت-اگزوپری"
+      }
+     },
+     {
+      "id": 652,
+      "uuid": "5edae84d-15c4-4911-94c0-6746b10ff6ae",
+      "name": "آنتوان دو سنت <b>اگزوپری</b>",
+      "logo": "",
+      "cover": "",
+      "slug": "652-آنتوان-دو-سنت-اگزوپری",
+      "roles": [
+       "نویسنده"
+      ],
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z",
+      "action": {
+       "type": "person",
+       "url": "persons/652",
+       "web_url": "/contributors/652-آنتوان-دو-سنت-اگزوپری"
+      }
+     },
+     {
+      "id": 83917,
+      "uuid": "fb666050-b244-4df9-86f2-051e3a6b4d82",
+      "name": "کونسوئلو دو سنت <b>اگزوپری</b>",
+      "logo": "",
+      "cover": "",
+      "slug": "83917-کونسوئلو-دو-سنت-اگزوپری",
+      "roles": [
+       "نویسنده"
+      ],
+      "created_at": "0001-01-01T00:00:00Z",
+      "updated_at": "0001-01-01T00:00:00Z",
+      "action": {
+       "type": "person",
+       "url": "persons/83917",
+       "web_url": "/contributors/83917-کونسوئلو-دو-سنت-اگزوپری"
+      }
+     }
+    ],
+    "action": {
+     "type": "search_list",
+     "inputs": [
+      {
+       "key": "query",
+       "value": "%D8%A7%DA%AF%D8%B2%D9%88%D9%BE%D8%B1%DB%8C"
+      }
+     ],
+     "url": "/search/list/person",
+     "web_url": "/search/list/person?query=%25D8%25A7%25DA%25AF%25D8%25B2%25D9%2588%25D9%25BE%25D8%25B1%25DB%258C"
+    },
+    "extra_data": {
+     "query_id": "8F74A983E809E76F"
+    },
+    "order": 1
+   }
+  ],
+  "total": 3
+ },
+ "error": "",
+ "message": "با موفقیت انجام شد",
+ "represented_at": "2026-10-10 16:43:05.834269",
+ "version": "v1"
+}

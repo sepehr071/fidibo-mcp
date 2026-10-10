@@ -1,0 +1,237 @@
+{
+ "data": {
+  "per_page": 4,
+  "result": [
+   {
+    "id": 6673,
+    "uuid": "77aa23ae-ad0f-4640-8fc6-b404d6482d13",
+    "status": "published",
+    "title": "عقاید یک دلقک",
+    "subtitle": "هاینریش بل",
+    "footerText": "مجید",
+    "footerTextAction": {
+     "type": "publisher",
+     "url": "/publishers/221",
+     "web_url": "/publishers/221-انتشارات-مجید"
+    },
+    "format": "epub",
+    "content_type": "ebook",
+    "action": {
+     "type": "book",
+     "inputs": [
+      {
+       "key": "slug",
+       "value": "6673-کتاب-عقاید-یک-دلقک"
+      }
+     ],
+     "url": "/flex/book/item/6673",
+     "web_url": "/book/6673-کتاب-عقاید-یک-دلقک"
+    },
+    "rate": {
+     "score": 3.6,
+     "responses": 47672
+    },
+    "cover": {
+     "image": "https://cdn.fidibo.com/phoenixpub/content/77aa23ae-ad0f-4640-8fc6-b404d6482d13/2190a980-9f13-489c-a935-642d3f22a2a0.jpg",
+     "background": {
+      "r": 97,
+      "g": 100,
+      "b": 107,
+      "a": 0.1
+     }
+    },
+    "badges": {
+     "purchased": 0,
+     "is_gift": 0,
+     "sample": 0,
+     "user_subscription": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "subscription": 1,
+     "campaign": 0,
+     "favorite": 0,
+     "read": 0,
+     "on_the_table": 0,
+     "tts": 1
+    },
+    "price": 99000,
+    "usd_price": 4
+   },
+   {
+    "id": 68283,
+    "uuid": "b5fb29e5-b0ae-4195-b187-7be277c06e08",
+    "status": "published",
+    "title": "صد سال تنهایی",
+    "subtitle": "گابریل گارسیا مارکز",
+    "footerText": "مجید",
+    "footerTextAction": {
+     "type": "publisher",
+     "url": "/publishers/221",
+     "web_url": "/publishers/221-انتشارات-مجید"
+    },
+    "format": "epub",
+    "content_type": "ebook",
+    "action": {
+     "type": "book",
+     "inputs": [
+      {
+       "key": "slug",
+       "value": "68283-کتاب-صد-سال-تنهایی"
+      }
+     ],
+     "url": "/flex/book/item/68283",
+     "web_url": "/book/68283-کتاب-صد-سال-تنهایی"
+    },
+    "rate": {
+     "score": 3.9,
+     "responses": 46892
+    },
+    "cover": {
+     "image": "https://cdn.fidibo.com/phoenixpub/content/b5fb29e5-b0ae-4195-b187-7be277c06e08/b0ff9eeb-29cb-4f3d-83b3-ea94b909cc83.jpg",
+     "background": {
+      "r": 97,
+      "g": 100,
+      "b": 107,
+      "a": 0.1
+     }
+    },
+    "badges": {
+     "purchased": 0,
+     "is_gift": 0,
+     "sample": 0,
+     "user_subscription": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "subscription": 1,
+     "campaign": 0,
+     "favorite": 0,
+     "read": 0,
+     "on_the_table": 0,
+     "tts": 1
+    },
+    "price": 115000,
+    "usd_price": 5
+   },
+   {
+    "id": 64664,
+    "uuid": "9b426baf-5caf-4231-b6fc-ed8f12766eaa",
+    "status": "published",
+    "title": "مردی به نام اوه",
+    "subtitle": "فردریک بکمن",
+    "footerText": "نشر نون",
+    "footerTextAction": {
+     "type": "publisher",
+     "url": "/publishers/379",
+     "web_url": "/publishers/379-نشر-نون"
+    },
+    "format": "epub",
+    "content_type": "ebook",
+    "action": {
+     "type": "book",
+     "inputs": [
+      {
+       "key": "slug",
+       "value": "64664-کتاب-مردی-به-نام-اوه"
+      }
+     ],
+     "url": "/flex/book/item/64664",
+     "web_url": "/book/64664-کتاب-مردی-به-نام-اوه"
+    },
+    "rate": {
+     "score": 3.8,
+     "responses": 40557
+    },
+    "cover": {
+     "image": "https://cdn.fidibo.com/phoenixpub/content/9b426baf-5caf-4231-b6fc-ed8f12766eaa/38cd74ad-bedf-4603-b730-bd2dc762385c.jpg",
+     "background": {
+      "r": 97,
+      "g": 100,
+      "b": 107,
+      "a": 0.1
+     }
+    },
+    "badges": {
+     "purchased": 0,
+     "is_gift": 0,
+     "sample": 0,
+     "user_subscription": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "subscription": 0,
+     "campaign": 1,
+     "favorite": 0,
+     "read": 0,
+     "on_the_table": 0,
+     "tts": 1
+    },
+    "campaign": {
+     "discount_amount": 30,
+     "discounted_price": 126000,
+     "discounted_usd_price": 12.6
+    },
+    "price": 180000,
+    "usd_price": 18
+   },
+   {
+    "id": 4339,
+    "uuid": "652b9afe-3df8-425c-ac74-112be1749c88",
+    "status": "published",
+    "title": "ملت عشق",
+    "subtitle": "الیف شافاک",
+    "footerText": "گروه انتشاراتی ققنوس",
+    "footerTextAction": {
+     "type": "publisher",
+     "url": "/publishers/68",
+     "web_url": "/publishers/68-گروه-انتشاراتی-ققنوس"
+    },
+    "format": "epub",
+    "content_type": "ebook",
+    "action": {
+     "type": "book",
+     "inputs": [
+      {
+       "key": "slug",
+       "value": "4339-کتاب-ملت-عشق"
+      }
+     ],
+     "url": "/flex/book/item/4339",
+     "web_url": "/book/4339-کتاب-ملت-عشق"
+    },
+    "rate": {
+     "score": 3.8,
+     "responses": 51245
+    },
+    "cover": {
+     "image": "https://cdn.fidibo.com/phoenixpub/content/652b9afe-3df8-425c-ac74-112be1749c88/2453d709-1889-4bf7-a391-fc48054fb432.jpg",
+     "background": {
+      "r": 97,
+      "g": 100,
+      "b": 107,
+      "a": 0.1
+     }
+    },
+    "badges": {
+     "purchased": 0,
+     "is_gift": 0,
+     "sample": 0,
+     "user_subscription": 0,
+     "in_user_plan": 0,
+     "inform_me": 0,
+     "subscription": 0,
+     "campaign": 0,
+     "favorite": 0,
+     "read": 0,
+     "on_the_table": 0,
+     "tts": 1
+    },
+    "price": 285000,
+    "usd_price": 6
+   }
+  ],
+  "total": 150
+ },
+ "error": "",
+ "message": "با موفقیت انجام شد",
+ "represented_at": "2026-10-10 16:52:33.642339",
+ "version": "v1"
+}
