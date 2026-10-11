@@ -2,19 +2,19 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.sepehr071/fidibo-mcp",
   "title": "Fidibo",
-  "description": "Unofficial read-only Fidibo: search Persian ebooks and audiobooks, compare prices, free and Plus books, reviews.",
+  "description": "Unofficial read-only Fidibo: search Persian ebooks and audiobooks, compare prices, free books.",
   "repository": {
     "url": "https://github.com/sepehr071/fidibo-mcp",
     "source": "github"
   },
   "websiteUrl": "https://github.com/sepehr071/fidibo-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packages": [
     {
       "registryType": "pypi",
       "registryBaseUrl": "https://pypi.org",
       "identifier": "fidibo-mcp",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "runtimeHint": "uvx",
       "transport": {
         "type": "stdio"
