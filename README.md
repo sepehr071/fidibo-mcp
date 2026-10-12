@@ -1,14 +1,31 @@
 <!-- mcp-name: io.github.sepehr071/fidibo-mcp -->
 
-# fidibo-mcp
+# fidibo-mcp: Fidibo MCP server for AI agents
 
-**Let your AI agent search Persian ebooks and audiobooks on Fidibo, compare prices, and find free and Fidibo Plus books.**
+**Unofficial, read-only MCP server that lets your AI agent search Persian ebooks and audiobooks on Fidibo (فیدیبو), compare prices, and find free and Fidibo Plus books.**
 
-Unofficial, read-only [MCP](https://modelcontextprotocol.io) server for [Fidibo](https://fidibo.com), the Iranian store
+An [MCP](https://modelcontextprotocol.io) server for [Fidibo](https://fidibo.com), the Iranian store
 for ebooks and audiobooks (Digikala group). Search by title or author, see the price in Toman with discount, check
 whether a book is free or in the Fidibo Plus subscription, read reviews, and browse bestsellers, new releases,
 categories, authors and publishers, all from Claude, Cursor or Copilot. No account, no API key, nothing is bought or
 changed.
+
+[Quick start](#quick-start) · [Tools](#tools) · [FAQ](#faq) · [فارسی](#فارسی)
+
+---
+
+## For AI agents
+
+- **What:** Unofficial MCP server for Fidibo (فیدیبو, fidibo.com), an Iranian ebook and audiobook store. Queries in Persian work best; prices in Toman.
+- **Install:** `claude mcp add fidibo -- uvx fidibo-mcp` (stdio, needs [uv](https://docs.astral.sh/uv/getting-started/installation/) and Python 3.10+).
+- **Auth:** none. Optional `FIDIBO_MCP_PROXY` sets an HTTP proxy for every request.
+- **Access:** read-only. It cannot log in, buy, review or touch a library.
+- **Tools:** 11, all prefixed `fd_`. Start with `fd_search`, `fd_book`, `fd_bestsellers`, `fd_free`, `fd_browse`.
+- **Typical sequence:** `fd_search` -> `fd_book` -> `fd_reviews`; `fd_categories` -> `fd_browse` to list a category.
+- **Use when:** the user wants to find a Persian ebook or audiobook on Fidibo, compare price and discount, check free or Fidibo Plus books, or list bestsellers and new releases.
+- **Do not use when:** the user wants to buy or read a book, or needs the user's own library or orders.
+- **Output:** compact JSON book cards. Prices in Toman (`final_price` is what you pay, `price` before discount), `in_plus` marks Fidibo Plus; pass `id` between tools and `next_page` to continue.
+- **Machine-readable:** [server.json](https://github.com/sepehr071/fidibo-mcp/blob/main/server.json), and the catalog of all Iranian MCP servers [awesome-iran-mcp](https://github.com/sepehr071/awesome-iran-mcp) (`TOOLS.md`, `servers.json`, `llms.txt`).
 
 ## Quick start
 
@@ -18,7 +35,7 @@ You need [uv](https://docs.astral.sh/uv/getting-started/installation/).
 claude mcp add fidibo -- uvx fidibo-mcp
 ```
 
-Any other MCP client: command `uvx`, args `["fidibo-mcp"]`.
+Any other MCP client: command `uvx`, args `["fidibo-mcp"]` (or `pip install fidibo-mcp` and run `fidibo-mcp`).
 
 ## What it can do
 
@@ -62,6 +79,19 @@ audiobook / microbook ...), `authors`, `publisher`, `final_price` (what you pay)
 - Fidibo lists are capped: the book list reports at most 150 matches, `fd_search` `total_matches` is the real count.
 - Persian queries work best.
 
+## FAQ
+
+**Is there a Fidibo API or MCP server for AI agents?**
+Yes: this unofficial MCP server wraps the public JSON API the Fidibo website itself uses, so Claude, Cursor or
+Copilot can search books and read prices and reviews.
+
+**Is it official, safe and free?**
+It is unofficial, open source (MIT) and free. It is read-only, needs no account or API key, and runs on your
+machine with no hosted server in between.
+
+**Can it buy a book or manage my Fidibo Plus subscription?**
+No. It only reads public catalog data. Buying, reading and subscriptions happen on fidibo.com or in the Fidibo app.
+
 ## Configuration
 
 The server calls `api.fidibo.com` directly and ignores system proxy variables. To use a proxy set `FIDIBO_MCP_PROXY=http://host:port`.
@@ -78,9 +108,34 @@ uv run pytest -m live -q    # real API, one test per tool
 
 The API map this server is built on lives next to it in `../fidibo/`.
 
+<a id="فارسی"></a>
+
+## فارسی: سرور MCP فیدیبو
+
+<div dir="rtl">
+
+**fidibo-mcp** یک سرور MCP غیررسمی برای فیدیبو است که به دستیار هوش مصنوعی شما (Claude، Cursor، Copilot و ...) اجازه
+می&zwnj;دهد در میان کتاب&zwnj;های الکترونیکی و صوتی ایران جستجو کند، قیمت و تخفیف را ببیند، کتاب&zwnj;های رایگان و
+فیدیبو پلاس را پیدا کند و پرفروش&zwnj;ها و تازه&zwnj;ها را فهرست کند.
+
+- فقط خواندنی است و حساب کاربری یا کلید API نمی&zwnj;خواهد.
+- همه قیمت&zwnj;ها به تومان است.
+
+بپرسید: «کتاب&zwnj;های صوتی رایگان فیدیبو درباره تاریخ کدامند؟»
+
+</div>
+
+## Related servers
+
+- [Taaghche MCP server](https://github.com/sepehr071/taaghche-mcp) for Iranian ebook and audiobook prices on Taaghche
+- [30book MCP server](https://github.com/sepehr071/30book-mcp) for printed Iranian and foreign books
+- All Iranian MCP servers: [awesome-iran-mcp](https://github.com/sepehr071/awesome-iran-mcp)
+
 ## Disclaimer
 
 Unofficial; not affiliated with Fidibo or Digikala. Read-only access to the data of public pages. Keep request rates low.
+
+If this saves you clicks, a star helps others find it.
 
 ## License
 
