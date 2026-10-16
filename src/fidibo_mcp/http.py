@@ -2,7 +2,8 @@
 
 Fidibo serves everything from one JSON gateway, `https://api.fidibo.com` (book catalog under `/flex`).
 No token, cookie or header is needed for public reads. Every tool goes through `api`. `_send` caps
-concurrency, retries once when the server drops the connection or answers 200 with an empty body, and
+concurrency, retries once (after a fixed 0.5 s) when the server drops the connection or answers 200 with an empty
+body, or 502/503/504 on a GET, and
 turns HTTP failures into `ToolError` messages the model can act on. HTTP 204 (an empty page) returns `{}`.
 """
 
@@ -24,6 +25,8 @@ HEADERS = {
 }
 
 MAX_CONCURRENCY = 4
+RETRY_DELAY = 0.5  # seconds, fixed
+RETRY_STATUS = (502, 503, 504)
 
 _transport: httpx.AsyncBaseTransport | None = None
 _client: httpx.AsyncClient | None = None
@@ -49,7 +52,7 @@ def _get_client() -> tuple[httpx.AsyncClient, asyncio.Semaphore]:
             transport=_transport,
             headers=HEADERS,
             timeout=30,
-            follow_redirects=True,
+            follow_redirects=False,  # the API never redirects; do not follow one to another host
             trust_env=False,
             proxy=os.environ.get("FIDIBO_MCP_PROXY") or None,
         )
@@ -95,8 +98,13 @@ async def _send(method: str, url: str, **kwargs: Any) -> httpx.Response:
                     f"Could not reach fidibo.com ({type(e).__name__}). Check the internet connection, "
                     "or set FIDIBO_MCP_PROXY."
                 ) from e
+            await asyncio.sleep(RETRY_DELAY)
             continue
-        if r.status_code == 200 and not r.content and attempt == 1:  # a retry works
+        # a retry works for an empty 200; 502/503/504 are retried for GET only
+        if attempt == 1 and (
+            (r.status_code == 200 and not r.content) or (method == "GET" and r.status_code in RETRY_STATUS)
+        ):
+            await asyncio.sleep(RETRY_DELAY)
             continue
         break
     if r.status_code >= 400:

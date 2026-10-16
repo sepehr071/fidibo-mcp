@@ -11,7 +11,8 @@ API map this server is built on (endpoints, samples, quirks, test report): `../f
 - `src/fidibo_mcp/http.py`: the only HTTP code. One shared `httpx.AsyncClient` (`trust_env=False`, proxy only from
   `FIDIBO_MCP_PROXY`), a concurrency semaphore, `api(path, params, body=None)` for the JSON gateway
   `https://api.fidibo.com` (GET, or POST when `body` is given: the book list is a read-only POST query), `result()`
-  for `data.result`, one retry on dropped connections and on an empty 200 body, HTTP 204 returns `{}`,
+  for `data.result`, one retry (fixed 0.5 s, `RETRY_DELAY`) on dropped connections, an empty 200 body and 502/503/504 on GETs, no redirects
+  followed, HTTP 204 returns `{}`,
   `ApiError(ToolError)`, `set_transport()` for tests.
 - `registry.py`: `@tool("Title")` collects tools. `server.py`: registers them with read-only annotations, holds `INSTRUCTIONS`.
 - Tools: `books.py` (search, browse, bestsellers, new, free, categories; also `_card`, `_scan`, `book_list`),
@@ -36,9 +37,17 @@ uv run pytest -m live -q    # one live test per tool, about 10 s
 - Read-only only. Never call login/OTP (`/identity/*`), basket / payment, library / shelves / favorites, review or
   rating writes, `/flex/search/click`, the Fidibo Plus plans flow, or any analytics beacon.
 - Output units: prices in **Toman** (the API is Toman; nothing to convert; the site's Rial view is x10). Card:
-  `final_price` = `campaign.discounted_price` or `price` (what the customer pays), `price` = before discount (set to
-  `final_price` when there is no discount), `discount_pct` int computed, `free` = no `price` key (price 0), `in_plus` =
-  `badges.subscription`, `rating` absent when nobody voted.
+  `final_price` = `campaign.discounted_price` or `price` (what the customer pays), `price` = before discount (omitted
+  when equal to `final_price`), `discount_pct` int computed, `free` = no `price` key (price 0), `in_plus` =
+  `badges.subscription`, `rating` absent when nobody voted. `_slim` drops default values after filtering: absent
+  `discount_pct` / `free` / `in_plus` / `ratings_count` mean 0 / false, `available` appears only when false. `image` and
+  `url` stay on every card. Default `limit` is 10; reviews are cut at 400 chars, book descriptions at 1500, publisher descriptions at 600 (`full_text=true` on
+  fd_reviews / fd_book / fd_publisher skips the cut), reviewer names at 40.
+- `fd_categories` caches `/flex/base-levels` in memory for an hour (`_levels`); `parent` filters one category. Category
+  levels are checked against `LEVELS`; slugs from API data go into paths through `quote(slug, safe='')`.
+- `_scan` fetches its (up to 3) pages with `asyncio.gather`, at least `SCAN_SIZE` (20) books per page when a filter is set; fd_author / fd_publisher fetch profile and books together.
+- Descriptions are text from the site: INSTRUCTIONS tells the model to treat them as data. Tool input schemas have
+  pydantic `title` keys stripped in `server.py` (`_untitled`).
 - New tool: `@tool("Title")` async function, every param `Annotated[..., Field(...)]` with constraints and an example,
   docstring = what it returns + when to use + what to call next, compact dict output. Add a unit test with a real trimmed
   fixture, a live test, a README tool-table row, and an `INSTRUCTIONS` mention.

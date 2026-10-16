@@ -47,8 +47,8 @@ Any other MCP client: command `uvx`, args `["fidibo-mcp"]` (or `pip install fidi
 ## Tools
 
 All tools are read-only and start with `fd_`. Every book in a result is a compact card: `id`, `title`, `type` (ebook /
-audiobook / microbook ...), `authors`, `publisher`, `final_price` (what you pay) and `price` (before discount) in Toman,
-`discount_pct`, `free`, `in_plus`, `rating`, `url`.
+audiobook / microbook ...), `authors`, `publisher`, `final_price` (what you pay) in Toman, `price` (before discount, only when discounted),
+`discount_pct`, `free`, `in_plus` (each only when set), `rating`, `image`, `url`. Default page size is 10 books.
 
 ### Find books
 
@@ -59,7 +59,7 @@ audiobook / microbook ...), `authors`, `publisher`, `final_price` (what you pay)
 | `fd_bestsellers` | Top sellers of the week, month or all time, per kind and category |
 | `fd_new` | Newest books and audiobooks |
 | `fd_free` | Free ebooks and audiobooks |
-| `fd_categories` | Category and sub-category slugs of a top level (ebooks, audiobooks, education, magazines, podcasts) |
+| `fd_categories` | Category and sub-category slugs of a top level (ebooks, audiobooks, education, magazines, podcasts); `parent` narrows to one category |
 
 ### One book, people
 
@@ -73,7 +73,7 @@ audiobook / microbook ...), `authors`, `publisher`, `final_price` (what you pay)
 
 ## Good to know
 
-- **Prices are Toman.** The API returns Toman (checked against the site); `final_price` is the price to pay after a campaign discount, `price` is before it. Free books have price 0.
+- **Prices are Toman.** The API returns Toman (checked against the site); `final_price` is the price to pay after a campaign discount, `price` is before it (present only with a discount). Free books have price 0.
 - `in_plus` means the book is in the Fidibo Plus subscription catalog; it still has a normal buy price.
 - Price range, free and Plus filters of `fd_search` are applied after fetching (up to 3 pages per call); use `next_page` to continue. `fd_browse` filters free and Plus on the server and the price range after fetching.
 - Fidibo lists are capped: the book list reports at most 150 matches, `fd_search` `total_matches` is the real count.

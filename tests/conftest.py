@@ -26,6 +26,8 @@ def fresh_http_client():
     """The shared httpx client is bound to one event loop; each test gets a new loop."""
     http.set_transport(None)
     books._category_ids.clear()
+    books._levels = None
+    http.RETRY_DELAY = 0
     yield
     http.set_transport(None)
 
@@ -67,4 +69,13 @@ def api():
 @pytest.fixture
 async def client():
     async with Client(mcp, raise_exceptions=True) as c:
+        call_tool = c.call_tool
+
+        async def parsed(*args, **kwargs):
+            result = await call_tool(*args, **kwargs)
+            if not result.is_error:
+                result.structured_content = json.loads(result.content[0].text)
+            return result
+
+        c.call_tool = parsed
         yield c

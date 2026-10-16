@@ -2,17 +2,19 @@
 
 from __future__ import annotations
 
+import asyncio
 from typing import Annotated, Any, Literal
 
 from pydantic import Field
 
 from .books import Kind, Limit, _text, book_list
+from .detail import FullText, _clip
 from .http import SITE, ApiError, api, result
 from .registry import tool
 
 Sort = Annotated[
     Literal["bestseller", "newest", "popular", "cheapest"],
-    Field(description="Order of the books: bestseller (default), newest, popular or cheapest."),
+    Field(description="Order of the books (default bestseller)."),
 ]
 
 
@@ -33,26 +35,26 @@ async def _resolve(who: int | str, kind: str) -> tuple[int, list[dict[str, Any]]
 @tool("Author or translator")
 async def fd_author(
     author: Annotated[
-        int | str,
-        Field(
-            description="Person id (e.g. 30198) or a name to look up (e.g. 'اگزوپری'). Authors, translators and narrators."
-        ),
+        Annotated[int, Field(ge=1, le=100_000_000)] | Annotated[str, Field(min_length=1, max_length=100)],
+        Field(description="Person id (e.g. 30198) or a name (e.g. 'اگزوپری'); authors, translators, narrators."),
     ],
     sort: Sort = "bestseller",
     kind: Kind = "any",
     limit: Limit = 10,
 ) -> dict[str, Any]:
-    """An author's, translator's or narrator's profile and their books on Fidibo, with prices in Toman.
+    """An author's, translator's or narrator's profile and books (Toman).
 
-    Use for "books by X" or "what has Y narrated". A name is searched and the first match is used; `matches`
-    lists the other people found (call again with an id to pick one). Book details: fd_book.
+    Use for "books by X" or "what has Y narrated". A name uses the first match; `matches` lists the others (call
+    again with an id to pick one). Details: fd_book.
     """
     person_id, matches = await _resolve(author, "person")
-    rows = result(await api(f"/flex/persons/{person_id}")) or []
+    profile, books = await asyncio.gather(
+        api(f"/flex/persons/{person_id}"), book_list(sort=sort, kind=kind, author_id=person_id, limit=limit)
+    )
+    rows = result(profile) or []
     if not rows:
         raise ApiError(f"Person {person_id} not found on Fidibo.")
     p = rows[0]
-    books = await book_list(sort=sort, kind=kind, author_id=person_id, limit=limit)
     out = {
         "id": p["id"],
         "name": p.get("full_name"),
@@ -68,28 +70,32 @@ async def fd_author(
 @tool("Publisher")
 async def fd_publisher(
     publisher: Annotated[
-        int | str, Field(description="Publisher id (e.g. 221) or a name to look up (e.g. 'مجید' or 'نگاه').")
+        Annotated[int, Field(ge=1, le=100_000_000)] | Annotated[str, Field(min_length=1, max_length=100)],
+        Field(description="Publisher id (e.g. 221) or a name (e.g. 'نگاه')."),
     ],
     sort: Sort = "bestseller",
     kind: Kind = "any",
     limit: Limit = 10,
+    full_text: FullText = False,
 ) -> dict[str, Any]:
-    """A publisher's profile and its books on Fidibo, with prices in Toman.
+    """A publisher's profile and books (Toman).
 
-    Use for "books from publisher X". A name is searched and the first match is used; `matches` lists the
-    others. Book details: fd_book.
+    Use for "books from publisher X". A name uses the first match; `matches` lists the others. Details: fd_book.
     """
     publisher_id, matches = await _resolve(publisher, "publisher")
-    rows = result(await api(f"/flex/publishers/{publisher_id}")) or []
+    profile, books = await asyncio.gather(
+        api(f"/flex/publishers/{publisher_id}"),
+        book_list(sort=sort, kind=kind, publisher_id=publisher_id, limit=limit),
+    )
+    rows = result(profile) or []
     if not rows:
         raise ApiError(f"Publisher {publisher_id} not found on Fidibo.")
     p = rows[0]
-    books = await book_list(sort=sort, kind=kind, publisher_id=publisher_id, limit=limit)
     desc = _text(p.get("description"))
     out = {
         "id": p["id"],
         "name": p.get("name"),
-        "description": (desc[:600] + "…" if len(desc) > 600 else desc) or None,
+        "description": _clip(desc, None if full_text else 600),
         "logo": p.get("image"),
         "url": f"{SITE}/publishers/{p.get('slug')}",
         "matches": matches[1:] or None,

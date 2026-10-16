@@ -13,7 +13,8 @@ def check_cards(books):
     assert books
     for b in books:
         assert b["id"] and b["title"] and b["url"].startswith("https://fidibo.com/book/")
-        assert b["final_price"] <= b["price"] and b["free"] == (b["final_price"] == 0 and b["price"] == 0)
+        price = b.get("price", b["final_price"])  # price is omitted when it equals final_price
+        assert b["final_price"] <= price and b.get("free", False) == (b["final_price"] == 0 and price == 0)
         assert b["image"].startswith("https://")
 
 
@@ -54,7 +55,7 @@ async def test_fd_new(client):
 async def test_fd_free(client):
     data = await call(client, "fd_free", {"limit": 10})
     check_cards(data["books"])
-    assert all(b["free"] and b["final_price"] == 0 for b in data["books"])
+    assert all(b.get("free") and b["final_price"] == 0 for b in data["books"])
 
 
 async def test_fd_categories(client):

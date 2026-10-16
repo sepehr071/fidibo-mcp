@@ -17,7 +17,11 @@ async def _popular_book(client, kind="ebook") -> dict:
 async def test_fd_book_ebook_and_audiobook(client):
     ebook = await _popular_book(client)
     data = await call(client, "fd_book", {"book_id": ebook["id"]})
-    assert data["id"] == ebook["id"] and data["type"] in ("ebook", "microbook") and data["final_price"] <= data["price"]
+    assert (
+        data["id"] == ebook["id"]
+        and data["type"] in ("ebook", "microbook")
+        and data["final_price"] <= data.get("price", data["final_price"])
+    )
     assert (
         data["pages"]
         and data["file_size"]

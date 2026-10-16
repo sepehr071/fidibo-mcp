@@ -48,3 +48,13 @@ async def test_fd_publisher_by_name(client, api):
     assert out["id"] == 221 and out["name"] == "مجید" and out["logo"].startswith("https://cdn.fidibo.com/")
     assert "<" not in out["description"] and len(out["books"]) == 4
     assert out["url"] == "https://fidibo.com/publishers/221-انتشارات-مجید"
+
+
+async def test_fd_publisher_full_text(client, api):
+    profile = fixture("publisher.json")
+    profile["data"]["result"][0]["description"] = "z" * 1000
+    api["/flex/publishers/221"] = profile
+    api[LIST] = fixture("list_category.json")
+    clipped = (await client.call_tool("fd_publisher", {"publisher": 221})).structured_content
+    full = (await client.call_tool("fd_publisher", {"publisher": 221, "full_text": True})).structured_content
+    assert clipped["description"] == "z" * 600 + "…" and full["description"] == "z" * 1000

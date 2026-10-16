@@ -1,8 +1,11 @@
+import json
 import re
 from pathlib import Path
 
 import httpx
 import pytest
+
+from fidibo_mcp import http
 
 pytestmark = pytest.mark.anyio
 
@@ -93,3 +96,33 @@ async def test_browser_user_agent_and_no_env_proxy(client, api, monkeypatch):
     result = await client.call_tool("fd_new", {})
     assert not result.is_error and "Chrome" in api.calls[0].headers["User-Agent"]
     assert api.calls[0].method == "POST" and api.calls[0].url.host == "api.fidibo.com"
+
+
+async def test_get_503_is_retried_once_but_post_is_not(client, api):
+    replies = iter([httpx.Response(503), httpx.Response(200, json={"data": {"result": []}})])
+    api[BASE_LEVELS] = lambda r: next(replies)
+    result = await client.call_tool("fd_categories", {})
+    assert len(api.calls) == 2 and "Unknown level" in result.content[0].text
+    api["/flex/list/book"] = lambda r: httpx.Response(503)
+    result = await client.call_tool("fd_new", {})
+    assert result.is_error and len(api.calls) == 3
+
+
+async def test_redirects_are_not_followed(client, api):
+    api[BASE_LEVELS] = lambda r: httpx.Response(302, headers={"location": "https://evil.example/x"})
+    result = await client.call_tool("fd_categories", {})
+    assert result.is_error and len(api.calls) == 1
+
+
+async def test_raw_client_one_text_block_no_structured_content_no_output_schema():
+    from mcp import Client
+
+    from fidibo_mcp.server import mcp
+
+    http.set_transport(httpx.MockTransport(lambda r: httpx.Response(200, json={"data": {"result": []}})))
+    async with Client(mcp) as raw:  # the `client` fixture patches call_tool; this one does not
+        tools = (await raw.list_tools()).tools
+        assert all(t.output_schema is None for t in tools)
+        assert all('"title"' not in json.dumps(t.input_schema) for t in tools)
+        result = await raw.call_tool("fd_new", {})
+    assert len(result.content) == 1 and result.content[0].type == "text" and result.structured_content is None

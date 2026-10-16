@@ -4,20 +4,24 @@ from __future__ import annotations
 
 import asyncio
 from typing import Annotated, Any
+from urllib.parse import quote
 
 from pydantic import Field
 
-from .books import _card, _slug, _text, book_list
+from .books import _card, _slim, _slug, _text, book_list
 from .http import ApiError, api, result
 from .registry import tool
 
-BookId = Annotated[int, Field(ge=1, le=100_000_000, description="Book id from fd_search / fd_browse, e.g. 68286.")]
+BookId = Annotated[int, Field(ge=1, le=100_000_000, description="From fd_search / fd_browse, e.g. 68286.")]
 
 _DIGITS = str.maketrans("۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩", "01234567890123456789")
 
 
-def _clip(text: str, n: int) -> str | None:
-    return (text[:n] + "…" if len(text) > n else text) or None
+FullText = Annotated[bool, Field(description="Do not clip description or review text.")]
+
+
+def _clip(text: str, n: int | None) -> str | None:
+    return (text[:n] + "…" if n and len(text) > n else text) or None
 
 
 def _toman(text: str | None) -> int | None:
@@ -39,13 +43,11 @@ def _component(rows: list[dict[str, Any]], name: str) -> dict[str, Any]:
 
 
 @tool("Book details")
-async def fd_book(book_id: BookId) -> dict[str, Any]:
-    """Get one book's full record: price and discount (Toman), format (ebook / audiobook), pages or duration, file size,
-    publisher, translator, narrators, rating with its 1-5 star distribution, reviews count, whether it is free or in
-    the Fidibo Plus subscription, description, printed price and category.
+async def fd_book(book_id: BookId, full_text: FullText = False) -> dict[str, Any]:
+    """One book's full record: price (Toman), format, pages or duration, size, people, rating and star
+    distribution, Plus flag, description (cut at 1500 chars unless full_text), printed price, category.
 
-    Use after fd_search / fd_browse when the user picks a book. Reader opinions: fd_reviews. Other books:
-    fd_similar, fd_author, fd_publisher.
+    Use after fd_search / fd_browse once the user picks a book. Then fd_reviews, fd_similar, fd_author.
     """
     item, overview = await asyncio.gather(
         _item(book_id), api("/flex/page", {"pageName": "BOOK_OVERVIEW", "bookId": book_id, "page": 1, "limit": 15})
@@ -75,34 +77,36 @@ async def fd_book(book_id: BookId) -> dict[str, Any]:
             "rating_distribution_pct": {str(d["score"]): d["percent"] for d in rate.get("distribution") or []},
             "moods": [f"{c['title']} ({c['responses']})" for c in rate.get("choices") or []],
             "description": _clip(
-                _text(_component(rows, "BOOK_INTRODUCTION").get("introduction", {}).get("description")), 1500
+                _text(_component(rows, "BOOK_INTRODUCTION").get("introduction", {}).get("description")),
+                None if full_text else 1500,
             ),
             "slug": _slug(item),
         }
     )
-    return {k: v for k, v in out.items() if v not in (None, [], {})}
+    return _slim({k: v for k, v in out.items() if v not in (None, [], {})})
 
 
 @tool("Book reviews")
 async def fd_reviews(
     book_id: BookId,
-    page: Annotated[int, Field(ge=1, le=100, description="Page number, from 1.")] = 1,
+    page: Annotated[int, Field(ge=1, le=100, description="From 1.")] = 1,
     limit: Annotated[int, Field(ge=1, le=20, description="Reviews per page.")] = 10,
+    full_text: FullText = False,
 ) -> dict[str, Any]:
-    """Read reader reviews of a book: text, 1-5 stars, date, likes and replies count, plus the total number of reviews.
+    """Reader reviews of a book: text (cut at 400 chars unless full_text), 1-5 stars, date, likes, replies, total count.
 
-    Use to judge quality beyond the average rating (fd_book has the rating and star distribution).
+    Use to judge quality beyond the average rating (fd_book has the distribution).
     """
     item = await _item(book_id)
     slug = _slug(item) or str(book_id)
-    data = await api(f"/flex/book/reviews/{slug}", {"page": page, "limit": limit})
+    data = await api(f"/flex/book/reviews/{quote(slug, safe='')}", {"page": page, "limit": limit})
     total = (data.get("data") or {}).get("total") or 0
     reviews = [
         {
-            "user": r.get("user"),
+            "user": _clip(str(r.get("user") or ""), 40),
             "date": r.get("time"),
             "rating": r.get("rate"),
-            "text": _clip((r.get("body") or "").strip(), 700),
+            "text": _clip((r.get("body") or "").strip(), None if full_text else 400),
             "likes": r.get("likes_count") or 0,
             "replies": r.get("comments_count") or 0,
         }
@@ -120,13 +124,12 @@ async def fd_reviews(
 @tool("Similar books")
 async def fd_similar(
     book_id: BookId,
-    same_kind: Annotated[bool, Field(description="Only the same kind (ebook or audiobook) as this book.")] = True,
-    limit: Annotated[int, Field(ge=1, le=30, description="Max books to return.")] = 10,
+    same_kind: Annotated[bool, Field(description="Only the same kind (ebook / audiobook).")] = True,
+    limit: Annotated[int, Field(ge=1, le=30, description="Max books.")] = 10,
 ) -> dict[str, Any]:
-    """Find books like this one: the bestsellers of its category (the book itself left out), with prices in Toman.
+    """Books like this one: bestsellers of its category, the book itself left out (Toman).
 
-    Use for "what else like X" or a cheaper / audio alternative (same_kind=False shows both kinds). Fidibo has no
-    separate similar-books endpoint; this uses the book's category.
+    Use for "what else like X" or an audio alternative (same_kind=False). No real similar-books endpoint exists.
     """
     item = await _item(book_id)
     crumbs = [b for b in item.get("breadcrumb") or [] if (b.get("action") or {}).get("type") == "category_page"]

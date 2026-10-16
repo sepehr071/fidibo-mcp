@@ -25,7 +25,7 @@ async def test_fd_book_ebook(client, api):
     assert (
         out["authors"] == "آنتوان دوسنت اگزوپری" and out["translators"] == "پرویز شهدی" and out["publisher"] == "مجید"
     )
-    assert out["in_plus"] is True and out["free"] is False and out["rating"] == 4.3
+    assert out["in_plus"] is True and "free" not in out and out["rating"] == 4.3 and out["image"]
     assert out["categories"] == ["داستان و رمان", "داستان و رمان خارجی", "درام"] and out["category_id"] == 449
     assert out["reviews_count"] == 67 and out["rating_distribution_pct"]["1"] == 4
     assert out["description"].startswith("کتاب شازده کوچولو اثر") and "<" not in out["description"]
@@ -37,7 +37,7 @@ async def test_fd_book_audiobook(client, api):
     out = (await client.call_tool("fd_book", {"book_id": 88132})).structured_content
     assert out["type"] == "audiobook" and out["duration"] == "01:30:32" and out["file_size"] == "۶۲.۱۶ مگابایت"
     assert out["narrators"].startswith("ابوالحسن تهامی") and "pages" not in out
-    assert (out["price"], out["final_price"], out["discount_pct"]) == (200000, 200000, 0)
+    assert out["final_price"] == 200000 and "price" not in out and "discount_pct" not in out
     assert "printed_price" not in out
 
 
@@ -85,3 +85,25 @@ async def test_fd_similar_falls_back_to_parent_category(client, api):
     out = (await client.call_tool("fd_similar", {"book_id": 68286, "same_kind": False})).structured_content
     assert out["based_on"]["category"] == "داستان و رمان خارجی" and out["count"] == 4
     assert "contentType" not in api.body()
+
+
+async def test_fd_reviews_full_text(client, api):
+    data = fixture("reviews.json")
+    data["data"]["result"][0]["body"] = "x" * 1000
+    api["/flex/book/item/68286"] = fixture("book_item_ebook.json")
+    api[SLUG_PATH] = data
+    clipped = (await client.call_tool("fd_reviews", {"book_id": 68286})).structured_content
+    full = (await client.call_tool("fd_reviews", {"book_id": 68286, "full_text": True})).structured_content
+    assert clipped["reviews"][0]["text"] == "x" * 400 + "…"
+    assert full["reviews"][0]["text"] == "x" * 1000
+
+
+async def test_fd_book_full_text(client, api):
+    rows = fixture("overview_ebook.json")
+    intro = next(r for r in rows["data"]["result"] if r["component"] == "BOOK_INTRODUCTION")
+    intro["items"][0]["introduction"]["description"] = "y" * 2000
+    api["/flex/book/item/68286"] = fixture("book_item_ebook.json")
+    api["/flex/page"] = rows
+    clipped = (await client.call_tool("fd_book", {"book_id": 68286})).structured_content
+    full = (await client.call_tool("fd_book", {"book_id": 68286, "full_text": True})).structured_content
+    assert clipped["description"] == "y" * 1500 + "…" and full["description"] == "y" * 2000
