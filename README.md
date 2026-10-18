@@ -18,7 +18,7 @@ changed.
 
 - **What:** Unofficial MCP server for Fidibo (فیدیبو, fidibo.com), an Iranian ebook and audiobook store. Queries in Persian work best; prices in Toman.
 - **Install:** `claude mcp add fidibo -- uvx fidibo-mcp` (stdio, needs [uv](https://docs.astral.sh/uv/getting-started/installation/) and Python 3.10+).
-- **Auth:** none. Optional `FIDIBO_MCP_PROXY` sets an HTTP proxy for every request.
+- **Auth:** none. Optional `FIDIBO_MCP_PROXY` sets an HTTP proxy (or a comma-separated list) for every request.
 - **Access:** read-only. It cannot log in, buy, review or touch a library.
 - **Tools:** 11, all prefixed `fd_`. Start with `fd_search`, `fd_book`, `fd_bestsellers`, `fd_free`, `fd_browse`.
 - **Typical sequence:** `fd_search` -> `fd_book` -> `fd_reviews`; `fd_categories` -> `fd_browse` to list a category.
@@ -94,7 +94,7 @@ No. It only reads public catalog data. Buying, reading and subscriptions happen 
 
 ## Configuration
 
-The server calls `api.fidibo.com` directly and ignores system proxy variables. To use a proxy set `FIDIBO_MCP_PROXY=http://host:port`.
+The server calls `api.fidibo.com` directly and ignores system proxy variables. Requests present as Chrome (TLS, HTTP/2 and headers), at most 2 at a time with a short random delay. To use a proxy set `FIDIBO_MCP_PROXY=http://host:port`; a comma-separated list is used one at a time, the next proxy taking over when one is blocked (403/429) or cannot connect. If Fidibo serves a bot-check page, install the browser extra (`pip install fidibo-mcp[browser]`) and run `patchright install chromium`.
 
 ## Development
 
@@ -102,8 +102,8 @@ The server calls `api.fidibo.com` directly and ignores system proxy variables. T
 export HTTPS_PROXY=http://127.0.0.1:10898 HTTP_PROXY=http://127.0.0.1:10898   # uv downloads only
 uv sync
 uv run ruff check . && uv run ruff format --check .
-uv run pytest -q            # offline, recorded fixtures
-uv run pytest -m live -q    # real API, one test per tool
+uv run python -m pytest -q            # offline, recorded fixtures
+uv run python -m pytest -m live -q    # real API, one test per tool
 ```
 
 The API map this server is built on lives next to it in `../fidibo/`.

@@ -1,5 +1,6 @@
 import json
 import re
+import sys
 from pathlib import Path
 
 import httpx
@@ -56,16 +57,16 @@ async def test_network_error_after_retry(client, api):
     api[BASE_LEVELS] = down
     result = await client.call_tool("fd_categories", {})
     assert result.is_error and "Could not reach fidibo.com (ConnectError)" in result.content[0].text
-    assert len(api.calls) == 2
+    assert len(api.calls) == 3  # retried twice
 
 
-async def test_timeout_is_not_retried(client, api):
+async def test_timeout_is_retried_twice(client, api):
     def slow(request):
         raise httpx.ReadTimeout("timed out", request=request)
 
     api[BASE_LEVELS] = slow
     result = await client.call_tool("fd_categories", {})
-    assert result.is_error and "did not answer in time" in result.content[0].text and len(api.calls) == 1
+    assert result.is_error and "did not answer in time" in result.content[0].text and len(api.calls) == 3
 
 
 @pytest.mark.parametrize(
@@ -90,11 +91,13 @@ async def test_empty_page_204_is_an_empty_list(client, api):
     assert out["count"] == 0 and out["books"] == [] and out["next_page"] is None
 
 
-async def test_browser_user_agent_and_no_env_proxy(client, api, monkeypatch):
+async def test_frontend_headers_and_no_env_proxy(client, api, monkeypatch):
     monkeypatch.setenv("HTTPS_PROXY", "http://127.0.0.1:1")  # must be ignored (trust_env=False)
     api["/flex/list/book"] = {"data": {"result": []}}
     result = await client.call_tool("fd_new", {})
-    assert not result.is_error and "Chrome" in api.calls[0].headers["User-Agent"]
+    h = api.calls[0].headers
+    assert not result.is_error and h["Origin"] == "https://fidibo.com" and h["sec-fetch-site"] == "same-site"
+    assert h["Referer"] == "https://fidibo.com/" and h["sec-fetch-mode"] == "cors" and "fa" in h["Accept-Language"]
     assert api.calls[0].method == "POST" and api.calls[0].url.host == "api.fidibo.com"
 
 
@@ -126,3 +129,95 @@ async def test_raw_client_one_text_block_no_structured_content_no_output_schema(
         assert all('"title"' not in json.dumps(t.input_schema) for t in tools)
         result = await raw.call_tool("fd_new", {})
     assert len(result.content) == 1 and result.content[0].type == "text" and result.structured_content is None
+
+
+def test_is_challenge():
+    html = {"content-type": "text/html"}
+    assert http._is_challenge(httpx.Response(403, text="<html>Just a moment...</html>", headers=html))
+    assert http._is_challenge(httpx.Response(503, text="<!doctype html><title>ArvanCloud</title>"))
+    assert not http._is_challenge(httpx.Response(403, text="<html>Access Denied</html>", headers=html))
+    assert not http._is_challenge(httpx.Response(403, json={"status": 403}))
+    assert not http._is_challenge(httpx.Response(200, text="<html></html>", headers=html))
+
+
+async def test_proxy_list_rotates_on_connect_error(monkeypatch, api):
+    monkeypatch.setenv("FIDIBO_MCP_PROXY", "http://p1:1, http://p2:2")
+    assert http._proxies() == ["http://p1:1", "http://p2:2"]
+
+    def boom(request):
+        raise httpx.ConnectError("down", request=request)
+
+    api["/x"] = boom
+    http._get_client()
+    with pytest.raises(http.ApiError):
+        await http.api("/x")
+    assert http._proxy_index >= 1  # moved on to the next proxy
+    monkeypatch.setenv("FIDIBO_MCP_PROXY", "http://p1:1")
+    idx = http._proxy_index
+    http._get_client()
+    with pytest.raises(http.ApiError):
+        await http.api("/x")
+    assert http._proxy_index == idx  # a single proxy never rotates
+
+
+async def test_stale_client_does_not_rotate(monkeypatch, api):
+    monkeypatch.setenv("FIDIBO_MCP_PROXY", "http://p1:1, http://p2:2")
+    old, _ = http._get_client()
+    http._next_proxy(old)
+    new, _ = http._get_client()
+    assert http._proxy_index == 1 and new is not old
+    http._next_proxy(old)
+    assert http._proxy_index == 1 and http._client is new
+
+
+async def test_challenge_cleared_by_browser_once(monkeypatch, api):
+    runs = []
+
+    async def fake_browser(proxy):
+        runs.append(proxy)
+        return [{"name": "clearance", "value": "ok", "domain": ".fidibo.com", "path": "/"}]
+
+    monkeypatch.setattr(http, "_browser_cookies", fake_browser)
+
+    def guarded(request):
+        if "clearance=ok" not in request.headers.get("cookie", ""):
+            return httpx.Response(403, text="<html>Just a moment</html>", headers={"content-type": "text/html"})
+        return httpx.Response(200, json={"data": {}})
+
+    api["/x"] = guarded
+    assert await http.api("/x") == {"data": {}}
+    assert len(runs) == 1
+    api["/y"] = lambda r: httpx.Response(403, text="<html>Just a moment</html>")
+    with pytest.raises(http.ApiError, match="refused"):  # still blocked after the one retry: final
+        await http.api("/y")
+    assert sum(r.url.path == "/y" for r in api.calls) == 2
+
+
+async def test_challenge_without_patchright(monkeypatch, api):
+    monkeypatch.setitem(sys.modules, "patchright.async_api", None)
+    api["/x"] = lambda r: httpx.Response(403, text="<html>Just a moment</html>")
+    with pytest.raises(http.ApiError, match=r"fidibo-mcp\[browser\].*patchright install chromium"):
+        await http.api("/x")
+
+
+async def test_retry_after_is_honoured_and_capped(monkeypatch, api):
+    waits = []
+
+    async def fake_sleep(s):
+        waits.append(s)
+
+    monkeypatch.setattr(http.asyncio, "sleep", fake_sleep)
+    replies = iter(
+        [
+            httpx.Response(429, headers={"Retry-After": "3"}),
+            httpx.Response(503, headers={"Retry-After": "999"}),
+            httpx.Response(200, json={"data": {}}),
+        ]
+    )
+    api["/x"] = lambda r: next(replies)
+    assert await http.api("/x") == {"data": {}}
+    assert [w for w in waits if w] == [3, http.MAX_RETRY_WAIT]
+    api["/y"] = lambda r: httpx.Response(429)
+    with pytest.raises(http.ApiError, match="rate limiting"):
+        await http.api("/y")
+    assert sum(r.url.path == "/y" for r in api.calls) == 3  # gives up after MAX_RETRIES

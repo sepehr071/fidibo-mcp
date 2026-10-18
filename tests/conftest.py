@@ -28,6 +28,7 @@ def fresh_http_client():
     books._category_ids.clear()
     books._levels = None
     http.RETRY_DELAY = 0
+    http.JITTER = (0, 0)
     yield
     http.set_transport(None)
 

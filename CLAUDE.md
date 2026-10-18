@@ -8,12 +8,17 @@ API map this server is built on (endpoints, samples, quirks, test report): `../f
 
 ## Layout
 
-- `src/fidibo_mcp/http.py`: the only HTTP code. One shared `httpx.AsyncClient` (`trust_env=False`, proxy only from
-  `FIDIBO_MCP_PROXY`), a concurrency semaphore, `api(path, params, body=None)` for the JSON gateway
+- `src/fidibo_mcp/http.py`: the only HTTP code. One shared `httpx.AsyncClient` (`trust_env=False`) on a Chrome-impersonating
+  `httpx_curl_cffi` transport (TLS, HTTP/2 and the User-Agent / sec-ch-ua headers come from the profile; `HEADERS` holds
+  only the XHR headers the site sends). Proxy only from `FIDIBO_MCP_PROXY`, a comma-separated list used sticky: next
+  proxy on a block (403/429/challenge) or connect error. A concurrency semaphore (`MAX_CONCURRENCY` 2) and a 150-600 ms
+  random `JITTER` before each upstream call. `api(path, params, body=None)` for the JSON gateway
   `https://api.fidibo.com` (GET, or POST when `body` is given: the book list is a read-only POST query), `result()`
-  for `data.result`, one retry (fixed 0.5 s, `RETRY_DELAY`) on dropped connections, an empty 200 body and 502/503/504 on GETs, no redirects
-  followed, HTTP 204 returns `{}`,
-  `ApiError(ToolError)`, `set_transport()` for tests.
+  for `data.result`. Up to `MAX_RETRIES` (2) retries with exponential backoff and jitter (base `RETRY_DELAY` 0.5 s, wait
+  capped at 10 s, `Retry-After` honoured) on timeouts, dropped connections, an empty 200 body and 429/5xx on GETs; a 403
+  is never retried. A bot-check page (`_is_challenge`) is cleared once by a headless patchright browser, only if
+  `fidibo-mcp[browser]` is installed and `patchright install chromium` was run; otherwise `ApiError`. No redirects
+  followed, HTTP 204 returns `{}`, `ApiError(ToolError)`, `set_transport()` for tests.
 - `registry.py`: `@tool("Title")` collects tools. `server.py`: registers them with read-only annotations, holds `INSTRUCTIONS`.
 - Tools: `books.py` (search, browse, bestsellers, new, free, categories; also `_card`, `_scan`, `book_list`),
   `detail.py` (book, reviews, similar), `people.py` (author, publisher). 11 tools, all `fd_*`.
@@ -28,8 +33,8 @@ uv needs the local proxy to download packages; the server and tests call Fidibo 
 export HTTPS_PROXY=http://127.0.0.1:10898 HTTP_PROXY=http://127.0.0.1:10898
 uv sync
 uv run ruff check . && uv run ruff format --check .
-uv run pytest -q            # unit tests, offline
-uv run pytest -m live -q    # one live test per tool, about 10 s
+uv run python -m pytest -q            # unit tests, offline (`uv run pytest` hits a uv trampoline error on Windows)
+uv run python -m pytest -m live -q    # one live test per tool, about 10 s
 ```
 
 ## Rules for changes
@@ -51,13 +56,13 @@ uv run pytest -m live -q    # one live test per tool, about 10 s
 - New tool: `@tool("Title")` async function, every param `Annotated[..., Field(...)]` with constraints and an example,
   docstring = what it returns + when to use + what to call next, compact dict output. Add a unit test with a real trimmed
   fixture, a live test, a README tool-table row, and an `INSTRUCTIONS` mention.
-- Keep `README.md` tool tables equal to `list_tools()` (a unit test checks it). Deps stay `mcp` + `httpx` only.
+- Keep `README.md` tool tables equal to `list_tools()` (a unit test checks it). Deps stay `mcp`, `httpx`, `httpx-curl-cffi`, `curl-cffi`; the only extra is `browser` = `patchright==1.63.0`.
 - Write ZWNJ as `\u200c` in code, never the invisible character.
 
 ## Fidibo quirks (keep them)
 
-- No auth, token or header needed. `curl` gets an ArvanCloud 403 on fidibo.com pages (TLS fingerprint); httpx and
-  requests are fine, direct or through the proxy.
+- No auth, token or header needed. `curl` gets an ArvanCloud 403 on fidibo.com pages (TLS fingerprint); the Chrome-impersonating
+  client is fine, direct or through the proxy.
 - Envelope `{data: {result, total, per_page}}`; many lists are UI components (`{component, items[]}`): search lists
   wrap cards in `result[0].items`, `POST /flex/list/book` returns cards directly in `result`. Empty page = HTTP 204.
 - `POST /flex/list/book?page&limit` body keys: `order` (BESTSELLER, WEEK_BESTSELLER, MONTH_BESTSELLER, POPULAR, RECENT,
