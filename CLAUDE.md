@@ -1,7 +1,7 @@
 # fidibo-mcp
 
 Unofficial, read-only MCP server for Fidibo (fidibo.com), an Iranian store for ebooks and audiobooks (Digikala group).
-Not published yet: no git repo, PyPI or MCP Registry release (planned: GitHub `sepehr071/fidibo-mcp`, PyPI `fidibo-mcp`).
+Published: GitHub `sepehr071/fidibo-mcp`, PyPI `fidibo-mcp`, MCP Registry `io.github.sepehr071/fidibo-mcp`, listed in `../../awesome-iran-mcp`.
 It is a sibling of `../shopino-mcp` and copies their layout and idioms; keep them in step.
 
 API map this server is built on (endpoints, samples, quirks, test report): `../fidibo/`.
@@ -78,7 +78,8 @@ uv run python -m pytest -m live -q    # one live test per tool, about 10 s
 - Sorting by price (both APIs) follows the price to pay; free books come first in cheapest order.
 - No similar-books endpoint: `fd_similar` = bestsellers of the leaf category (parents as fallback).
 
-## Release (when it is time)
+## Release
 
-Bump `version` in `pyproject.toml` and both versions in `server.json`, `git init`, create the GitHub repo, tag `vX.Y.Z`.
-`.github/workflows/publish.yml` (copied from shopino-mcp, untested here) publishes to PyPI and the MCP Registry.
+Bump `version` in `pyproject.toml` and both versions in `server.json`, update `uv.lock` if deps changed, commit,
+then `git tag vX.Y.Z && git push --tags`. `.github/workflows/publish.yml` tests, publishes to PyPI (trusted
+publishing, environment `pypi`), creates the GitHub Release and publishes to the MCP Registry (GitHub OIDC).
