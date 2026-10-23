@@ -1,7 +1,7 @@
 # fidibo-mcp
 
 Unofficial, read-only MCP server for Fidibo (fidibo.com), an Iranian store for ebooks and audiobooks (Digikala group).
-Published: GitHub `sepehr071/fidibo-mcp`, PyPI `fidibo-mcp`, MCP Registry `io.github.sepehr071/fidibo-mcp`, listed in `../../awesome-iran-mcp`.
+Published: GitHub `sepehr071/fidibo-mcp`, PyPI `fidibo-mcp`, MCP Registry `io.github.sepehr071/fidibo-mcp`, listed in `../../iran-mcp`.
 It is a sibling of `../shopino-mcp` and copies their layout and idioms; keep them in step.
 
 API map this server is built on (endpoints, samples, quirks, test report): `../fidibo/`.
