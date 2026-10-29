@@ -11,6 +11,7 @@ Works with Claude, Cursor, Copilot and any other [MCP](https://modelcontextproto
 [![CI](https://github.com/sepehr071/fidibo-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/sepehr071/fidibo-mcp/actions/workflows/ci.yml)
 [![MCP Registry](https://img.shields.io/badge/MCP_Registry-io.github.sepehr071%2Ffidibo--mcp-7c3aed)](https://registry.modelcontextprotocol.io/?q=fidibo-mcp)
 [![License: MIT](https://img.shields.io/badge/license-MIT-16a34a)](https://github.com/sepehr071/fidibo-mcp/blob/main/LICENSE)
+[![mcpfarsi](https://mcpfarsi.ir/badge/fidibo.svg)](https://mcpfarsi.ir/servers/fidibo/)
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_fidibo--mcp-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=fidibo&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22fidibo-mcp%22%5D%7D)
 
 [For AI agents](#for-ai-agents) · [Why](#why) · [What it can do](#what-it-can-do) · [Quick start](#quick-start) · [Tools](#tools) · [How it works](#how-it-works) · [Good to know](#good-to-know) · [FAQ](#faq) · [Configuration](#configuration) · [فارسی](#فارسی) · [Development](#development)
@@ -325,6 +326,7 @@ Releases: bump the version in `pyproject.toml` and `server.json`, then push a `v
 - [Digikala MCP server](https://github.com/sepehr071/digikala-mcp) for Iran's largest online store
 - [Shopino MCP server](https://github.com/sepehr071/shopino-mcp)
 - [iran-mcp](https://github.com/sepehr071/iran-mcp): catalog of all Iranian-service MCP servers
+- Listed on [mcpfarsi.ir](https://mcpfarsi.ir/servers/fidibo/), the Persian MCP marketplace
 
 ## Disclaimer
 

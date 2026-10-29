@@ -35,6 +35,7 @@ Homepage = "https://github.com/sepehr071/fidibo-mcp"
 Source = "https://github.com/sepehr071/fidibo-mcp"
 Changelog = "https://github.com/sepehr071/fidibo-mcp/releases"
 Issues = "https://github.com/sepehr071/fidibo-mcp/issues"
+Website = "https://mcpfarsi.ir/servers/fidibo/"
 
 [project.scripts]
 fidibo-mcp = "fidibo_mcp.server:main"
