@@ -124,7 +124,12 @@ async def fd_reviews(
 @tool("Similar books")
 async def fd_similar(
     book_id: BookId,
-    same_kind: Annotated[bool, Field(description="Only the same kind (ebook / audiobook).")] = True,
+    same_kind: Annotated[
+        bool,
+        Field(
+            description="True = same kind as this book; False = the other kind (audiobook for an ebook and vice versa)."
+        ),
+    ] = True,
     limit: Annotated[int, Field(ge=1, le=30, description="Max books.")] = 10,
 ) -> dict[str, Any]:
     """Books like this one: bestsellers of its category, the book itself left out (Toman).
@@ -133,9 +138,8 @@ async def fd_similar(
     """
     item = await _item(book_id)
     crumbs = [b for b in item.get("breadcrumb") or [] if (b.get("action") or {}).get("type") == "category_page"]
-    kind = "any"
-    if same_kind:
-        kind = "audio" if item.get("content_type") in ("audiobook", "micro_audiobook") else "ebook"
+    is_audio = item.get("content_type") in ("audiobook", "micro_audiobook")
+    kind = "audio" if is_audio == same_kind else "ebook"
     for crumb in reversed(crumbs):  # leaf category first, then its parents until something comes back
         found = await book_list(
             sort="bestseller", kind=kind, category_id=crumb["id"], exclude_id=book_id, limit=min(limit + 1, 30)

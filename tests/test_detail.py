@@ -84,7 +84,7 @@ async def test_fd_similar_falls_back_to_parent_category(client, api):
     api["/flex/list/book"] = by_category
     out = (await client.call_tool("fd_similar", {"book_id": 68286, "same_kind": False})).structured_content
     assert out["based_on"]["category"] == "داستان و رمان خارجی" and out["count"] == 4
-    assert "contentType" not in api.body()
+    assert api.body()["contentType"] == [2, 7]  # an ebook asks for the other kind
 
 
 async def test_fd_reviews_full_text(client, api):
