@@ -190,7 +190,7 @@ All 11 tools are read-only (annotated `readOnlyHint: true`) and start with `fd_`
 - **Filters are applied after fetching.** The price range, free and Plus filters of `fd_search` (and the price range of the other lists) look at up to 3 pages per call; a narrow filter may need more pages, so pass `next_page` back as `page`. `fd_browse` filters free and Plus on the server.
 - **List totals are capped:** the book list reports at most 150 matches; `fd_search` `total_matches` is the real count.
 - **Text is cut by default:** reviews at 400 characters, book descriptions at 1500, publisher descriptions at 600. Pass `full_text=true` to `fd_reviews`, `fd_book` or `fd_publisher` for the full text.
-- **No similar-books endpoint:** `fd_similar` returns bestsellers of the book's category.
+- **No similar-books endpoint:** `fd_similar` returns bestsellers of the book's category. `same_kind=true` (default) keeps the book's own kind; `same_kind=false` returns the other kind (audiobooks for an ebook, ebooks for an audiobook).
 - **Persian queries work best** (`شازده کوچولو`).
 - **Does not do:** log in, buy, read a book, touch a library, shelves, favorites, reviews or ratings, or manage a Fidibo Plus subscription.
 - Review, description and name text comes from the site and is treated as data, not instructions.

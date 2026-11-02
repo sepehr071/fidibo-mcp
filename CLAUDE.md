@@ -76,7 +76,8 @@ uv run python -m pytest -m live -q    # one live test per tool, about 10 s
 - `GET /flex/book/reviews/{slug}` needs the full slug; a bare id or `?bookId=` hangs until timeout. Same for
   `/flex/book/editions`. Do not call them.
 - Sorting by price (both APIs) follows the price to pay; free books come first in cheapest order.
-- No similar-books endpoint: `fd_similar` = bestsellers of the leaf category (parents as fallback).
+- No similar-books endpoint: `fd_similar` = bestsellers of the leaf category (parents as fallback). `same_kind=true` keeps the book's own kind, `false` asks for the other kind
+  (`contentType` [2, 7] for an ebook, audio otherwise); it no longer means "any".
 
 ## Release
 
