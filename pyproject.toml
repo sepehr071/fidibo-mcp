@@ -1,6 +1,6 @@
 [project]
 name = "fidibo-mcp"
-version = "0.3.3"
+version = "0.4.0"
 description = "Unofficial read-only MCP server for Fidibo: search Persian ebooks and audiobooks, compare prices, find free and Fidibo Plus books, read reviews."
 readme = "README.md"
 license = "MIT"
