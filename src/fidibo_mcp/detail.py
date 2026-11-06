@@ -44,10 +44,10 @@ def _component(rows: list[dict[str, Any]], name: str) -> dict[str, Any]:
 
 @tool("Book details")
 async def fd_book(book_id: BookId, full_text: FullText = False) -> dict[str, Any]:
-    """One book's full record: price (Toman), format, pages or duration, size, people, rating and star
-    distribution, Plus flag, description (cut at 1500 chars unless full_text), printed price, category.
+    """One book's full record: price (Toman), pages or duration, size, people, rating distribution, description
+    (cut at 1500 chars unless full_text), printed price, categories.
 
-    Use after fd_search / fd_browse once the user picks a book. Then fd_reviews, fd_similar, fd_author.
+    Use once the user picks a book. Then fd_reviews, fd_similar.
     """
     item, overview = await asyncio.gather(
         _item(book_id), api("/flex/page", {"pageName": "BOOK_OVERVIEW", "bookId": book_id, "page": 1, "limit": 15})
@@ -69,10 +69,7 @@ async def fd_book(book_id: BookId, full_text: FullText = False) -> dict[str, Any
             "original_title": item.get("original_title") or specs.get("عنوان انگلیسی"),
             "published": specs.get("تاریخ انتشار"),
             "printed_price": _toman(specs.get("قیمت چاپی")),
-            "usd_price": item.get("price_usd"),
-            "campaign_pct": (item.get("campaign") or {}).get("discount_amount"),
             "categories": [b["name"] for b in crumbs],
-            "category_id": crumbs[-1]["id"] if crumbs else None,
             "reviews_count": rate.get("reviews"),
             "rating_distribution_pct": {str(d["score"]): d["percent"] for d in rate.get("distribution") or []},
             "moods": [f"{c['title']} ({c['responses']})" for c in rate.get("choices") or []],
@@ -80,7 +77,6 @@ async def fd_book(book_id: BookId, full_text: FullText = False) -> dict[str, Any
                 _text(_component(rows, "BOOK_INTRODUCTION").get("introduction", {}).get("description")),
                 None if full_text else 1500,
             ),
-            "slug": _slug(item),
         }
     )
     return _slim({k: v for k, v in out.items() if v not in (None, [], {})})
@@ -95,7 +91,7 @@ async def fd_reviews(
 ) -> dict[str, Any]:
     """Reader reviews of a book: text (cut at 400 chars unless full_text), 1-5 stars, date, likes, replies, total count.
 
-    Use to judge quality beyond the average rating (fd_book has the distribution).
+    Use to judge quality beyond the average rating.
     """
     item = await _item(book_id)
     slug = _slug(item) or str(book_id)
@@ -107,11 +103,12 @@ async def fd_reviews(
             "date": r.get("time"),
             "rating": r.get("rate"),
             "text": _clip((r.get("body") or "").strip(), None if full_text else 400),
-            "likes": r.get("likes_count") or 0,
-            "replies": r.get("comments_count") or 0,
+            "likes": r.get("likes_count"),
+            "replies": r.get("comments_count"),
         }
         for r in result(data) or []
     ]
+    reviews = [{k: v for k, v in r.items() if v not in (None, "", 0)} for r in reviews]
     return {
         "book": _text(item.get("title")),
         "total_reviews": total,

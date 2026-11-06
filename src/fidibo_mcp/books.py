@@ -20,7 +20,7 @@ Category = Annotated[
     str | None,
     Field(
         pattern=r"^[a-z0-9-]{2,80}(/[a-z0-9-]{2,80})?$",
-        description="Slug from fd_categories, e.g. 'psychology'; audiobook level: 'audiobooks/story-foreign'. Includes sub-categories.",
+        description="Slug from fd_categories, e.g. 'psychology' or 'audiobooks/story-foreign'. Includes sub-categories.",
     ),
 ]
 MinPrice = Annotated[int | None, Field(ge=0, description="Min price to pay, Toman, e.g. 20000.")]
@@ -167,7 +167,7 @@ async def _scan(
     if total is not None:
         out["total_matches"] = total
     if filtered:
-        out["note"] = f"Price / free / Plus filters are applied after fetching ({scanned} page(s) scanned)."
+        out["note"] = f"Filters applied after fetching ({scanned} page(s) scanned)."
     return out
 
 
@@ -184,7 +184,7 @@ async def fd_search(
     kind: Kind = "any",
     sort: Annotated[
         Literal["relevance", "cheapest", "most_expensive", "newest"],
-        Field(description="relevance, cheapest / most_expensive (price to pay) or newest."),
+        Field(description="cheapest / most_expensive by price to pay."),
     ] = "relevance",
     free_only: Annotated[bool, Field(description="Only free books.")] = False,
     plus_only: Annotated[bool, Field(description="Only Fidibo Plus books.")] = False,
@@ -195,7 +195,7 @@ async def fd_search(
 ) -> dict[str, Any]:
     """Search ebooks and audiobooks by title, author or keyword; cards with price (Toman), rating, authors.
 
-    Use first for "find the book X" / "how much is X". Details: fd_book. Reviews: fd_reviews.
+    Use first for "find the book X" / "how much is X". Then fd_book.
     """
     _check_range(min_price, max_price)
     params: dict[str, Any] = {"query": query, "order": SEARCH_SORTS[sort], "size": limit}
@@ -276,9 +276,7 @@ async def book_list(
 async def fd_browse(
     sort: Annotated[
         Literal["bestseller", "week_bestseller", "month_bestseller", "popular", "newest", "cheapest", "most_expensive"],
-        Field(
-            description="bestseller (all time), week_ / month_bestseller, popular, newest, cheapest / most_expensive."
-        ),
+        Field(description="bestseller is all time; cheapest / most_expensive by price to pay."),
     ] = "bestseller",
     kind: Kind = "any",
     category: Category = None,
@@ -291,7 +289,7 @@ async def fd_browse(
 ) -> dict[str, Any]:
     """List books of a category (or all) in a chosen order, with free / Plus / price filters.
 
-    Use for "best audiobooks in psychology", "cheapest ebooks of a genre". Slugs: fd_categories.
+    Use for "cheapest ebooks of a genre". Slugs: fd_categories.
     """
     return await book_list(
         sort=sort,
@@ -317,7 +315,7 @@ async def fd_bestsellers(
 ) -> dict[str, Any]:
     """Top sellers of the week, month or all time, per kind and category (Toman).
 
-    Use for "what is popular now" or "best audiobooks". Genre slugs: fd_categories.
+    Use for "what is popular now" or "best audiobooks".
     """
     sort = {"week": "week_bestseller", "month": "month_bestseller", "all": "bestseller"}[period]
     return await book_list(sort=sort, kind=kind, category=category, limit=limit)
@@ -327,7 +325,7 @@ async def fd_bestsellers(
 async def fd_new(kind: Kind = "any", category: Category = None, limit: Limit = 10) -> dict[str, Any]:
     """Newest books and audiobooks, per kind and category (Toman).
 
-    Use for "new books this week" or "latest audiobooks". Details: fd_book.
+    Use for "latest audiobooks".
     """
     return await book_list(sort="newest", kind=kind, category=category, limit=limit)
 
@@ -336,14 +334,12 @@ async def fd_new(kind: Kind = "any", category: Category = None, limit: Limit = 1
 async def fd_free(
     kind: Kind = "any",
     category: Category = None,
-    sort: Annotated[
-        Literal["popular", "bestseller", "newest"], Field(description="Order of the free books.")
-    ] = "popular",
+    sort: Annotated[Literal["popular", "bestseller", "newest"], Field(description="Order.")] = "popular",
     limit: Limit = 10,
 ) -> dict[str, Any]:
     """Free ebooks and audiobooks (price 0), per kind and category.
 
-    Use for "free books to read or listen to". Free books can still be Plus titles (`in_plus`).
+    Use for "free books to read or listen to".
     """
     return await book_list(sort=sort, kind=kind, category=category, free=True, limit=limit)
 
@@ -361,8 +357,7 @@ async def fd_categories(
 ) -> dict[str, Any]:
     """List category and sub-category slugs (with Persian titles) of one top level.
 
-    Use to find the `category` slug for fd_browse / fd_bestsellers / fd_new / fd_free, e.g. 'story-foreign-drama'.
-    Audiobook slugs are under level 'audiobooks'. Pass `parent` to narrow a large tree.
+    Use to find the `category` slug for fd_browse / fd_bestsellers / fd_new / fd_free. Pass `parent` to narrow.
     """
     global _levels
     if _levels is None or time.monotonic() - _levels[0] > LEVELS_TTL:

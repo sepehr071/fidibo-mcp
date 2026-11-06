@@ -16,8 +16,8 @@ async def test_fd_book_ebook(client, api):
     overview = next(c for c in api.calls if c.url.path == "/flex/page")
     assert overview.url.params["pageName"] == "BOOK_OVERVIEW" and overview.url.params["bookId"] == "68286"
     # the site shows 49,000 crossed out and 44,100 تومان, printed price 60000 تومان
-    assert (out["price"], out["final_price"], out["discount_pct"], out["campaign_pct"]) == (49000, 44100, 10, 10)
-    assert out["printed_price"] == 60000 and out["usd_price"] == 3
+    assert (out["price"], out["final_price"], out["discount_pct"]) == (49000, 44100, 10)
+    assert out["printed_price"] == 60000
     assert out["type"] == "ebook" and out["file_format"] == "epub" and out["pages"] == 128
     assert (
         out["file_size"] == "۱.۹۱ مگابایت" and out["language"] == "فارسی" and out["original_title"] == "Le petit prince"
@@ -26,7 +26,7 @@ async def test_fd_book_ebook(client, api):
         out["authors"] == "آنتوان دوسنت اگزوپری" and out["translators"] == "پرویز شهدی" and out["publisher"] == "مجید"
     )
     assert out["in_plus"] is True and "free" not in out and out["rating"] == 4.3 and out["image"]
-    assert out["categories"] == ["داستان و رمان", "داستان و رمان خارجی", "درام"] and out["category_id"] == 449
+    assert out["categories"] == ["داستان و رمان", "داستان و رمان خارجی", "درام"]
     assert out["reviews_count"] == 67 and out["rating_distribution_pct"]["1"] == 4
     assert out["description"].startswith("کتاب شازده کوچولو اثر") and "<" not in out["description"]
 
