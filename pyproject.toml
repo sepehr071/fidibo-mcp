@@ -1,9 +1,9 @@
 [project]
 name = "fidibo-mcp"
-version = "0.4.0"
+version = "0.4.1"
 description = "Unofficial read-only MCP server for Fidibo: search Persian ebooks and audiobooks, compare prices, find free and Fidibo Plus books, read reviews."
 readme = "README.md"
-license = "MIT"
+license = "PolyForm-Noncommercial-1.0.0"
 license-files = ["LICENSE"]
 authors = [{ name = "Sepehr Radmard", email = "sepehrr80@gmail.com" }]
 requires-python = ">=3.10"
