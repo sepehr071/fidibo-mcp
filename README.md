@@ -14,7 +14,7 @@ Works with Claude, Cursor, Copilot and any other [MCP](https://modelcontextproto
 [![mcpfarsi](https://mcpfarsi.ir/badge/fidibo.svg)](https://mcpfarsi.ir/servers/fidibo/)
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_fidibo--mcp-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=fidibo&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22fidibo-mcp%22%5D%7D)
 
-[For AI agents](#for-ai-agents) · [Why](#why) · [What it can do](#what-it-can-do) · [Quick start](#quick-start) · [Tools](#tools) · [How it works](#how-it-works) · [Good to know](#good-to-know) · [FAQ](#faq) · [Configuration](#configuration) · [فارسی](#فارسی) · [Development](#development)
+[For AI agents](#for-ai-agents) · [Why](#why) · [What it can do](#what-it-can-do) · [Quick start](#quick-start) · [Tools](#tools) · [Good to know](#good-to-know) · [FAQ](#faq) · [Configuration](#configuration) · [فارسی](#فارسی) · [Development](#development)
 
 ---
 
@@ -166,21 +166,6 @@ All 11 tools are read-only (annotated `readOnlyHint: true`) and start with `fd_`
 | `fd_similar` | Books like this one: bestsellers of its category, the book itself left out (Toman) |
 | `fd_author` | An author's, translator's or narrator's profile and books (Toman) |
 | `fd_publisher` | A publisher's profile and books (Toman) |
-
-## How it works
-
-```text
-  AI agent  (Claude, Cursor, Copilot, ...)
-      │
-      │  MCP over stdio
-      ▼
-  fidibo-mcp  (runs on your machine)
-      │
-      │  HTTPS
-      └──────▶  api.fidibo.com   books, prices, reviews, authors, publishers
-```
-
-`fidibo-mcp` runs locally and calls the same JSON API the fidibo.com website uses. There is no hosted server in between and no API key. Requests present as Chrome (TLS, HTTP/2 and headers), at most 2 at a time with a short random delay; timeouts, dropped connections and 429/5xx answers are retried up to twice with backoff.
 
 ## Good to know
 
