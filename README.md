@@ -222,7 +222,7 @@ Use `fd_free` for free ebooks and audiobooks. `fd_search` and `fd_browse` have f
 <details>
 <summary><b>Do I need an Iranian IP?</b></summary>
 
-Not in the author's testing: the Chrome-impersonating client works direct or through a proxy. If requests are blocked (403/429), set `FIDIBO_MCP_PROXY`. Normal system proxy variables are ignored on purpose.
+Not in the author's testing: it works direct or through a proxy. If requests are blocked (403/429), set `FIDIBO_MCP_PROXY`. Normal system proxy variables are ignored on purpose.
 </details>
 
 <details>
